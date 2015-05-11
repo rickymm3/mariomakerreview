@@ -8,4 +8,4 @@
     -if current_user
       -if current_user.id == topicreply.user_id
         %li
-          =link_to "Edit", edit_topic_reply_path(@topic, topicreply)
+          =link_to "Edit", edit_topic_path(@topic, topicreply)
