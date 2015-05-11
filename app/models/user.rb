@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   devise :omniauthable
 
-  validates :username, presence: true
+  validates :username, presence: true, unless: -> {self.provider == 'facebook'}
   validates :username, uniqueness: true, if: -> { self.username.present? }
 
   has_and_belongs_to_many :roles
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     if user = User.find_by_email(data["email"])
       user
     else # Create a user with a stub password.
-      User.create!(uid: auth['uid'], provider: auth['provider'], :email => data["email"], :password => Devise.friendly_token[0,20], username: "nil")
+      User.create!(uid: auth['uid'], provider: auth['provider'], :email => data["email"], first: data["first_name"], last: data["last_name"], :password => Devise.friendly_token[0,20])
     end
   end
 

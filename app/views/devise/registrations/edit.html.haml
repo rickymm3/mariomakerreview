@@ -3,30 +3,31 @@
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-horizontal", :role => "form" }) do |f|
   = devise_error_messages!
   .form-group
-    = f.label :email, :class => "col-sm-2 control-label"
-    .col-sm-4
-      = f.email_field :email, :type => :email, :class => "form-control", :placeholder => "Enter your email"
-  .form-group
     = f.label :username, :class => "col-sm-2 control-label"
     .col-sm-4
-      = f.email_field :username, :type => :username, :class => "form-control", :placeholder => "Enter your username"
-  .form-group
-    = f.label :password, :class => "col-sm-2 control-label"
-    .col-sm-4
-      = f.password_field :password, :class => "form-control", :placeholder => "Password"
-      %span.help-block Leave blank if you don't want to change it.
-  .form-group
-    = f.label :password_confirmation, :class => "col-sm-2 control-label"
-    .col-sm-4
-      = f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm password"
-  .form-group
-    = f.label :current_password, :class => "col-sm-2 control-label"
-    .col-sm-4
-      = f.password_field :current_password, :class => "form-control", :placeholder => "Current password"
-      %span.help-block We need your current password to confirm your changes.
+      = f.text_field :username, :type => :username, :class => "form-control", :placeholder => "Enter your username"
+  -unless current_user.provider == 'facebook'
+    -#.form-group
+    -#  = f.label :email, :class => "col-sm-2 control-label"
+    -#  .col-sm-4
+    -#    = f.email_field :email, :type => :email, :class => "form-control", :placeholder => "Enter your email"
+    .form-group
+      = f.label :current_password, :class => "col-sm-2 control-label"
+      .col-sm-4
+        = f.password_field :current_password, :class => "form-control", :placeholder => "Current password"
+        %span.help-block We need your current password to confirm your changes.
+    .form-group
+      = f.label :password, :class => "col-sm-2 control-label"
+      .col-sm-4
+        = f.password_field :password, :class => "form-control", :placeholder => "Password"
+        %span.help-block Leave blank if you don't want to change it.
+    .form-group
+      = f.label :password_confirmation, :class => "col-sm-2 control-label"
+      .col-sm-4
+        = f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm password"
   .form-group
     .col-sm-offset-2.col-sm-4
       %button.btn.btn-default{:type => "submit"} Save settings
-%h3 Cancel account
-%p
-  Unhappy? #{link_to "Cancel your account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.
+  %h3 Cancel account
+  %p
+    Unhappy? #{link_to "Cancel your account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.

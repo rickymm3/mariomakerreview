@@ -10,7 +10,7 @@ BaseApp::Application.routes.draw do
 
   root :to => "cliqs#index"
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }
 
   get "pages/index"
   get "/admin" => "admin/base#index", :as => "admin"
