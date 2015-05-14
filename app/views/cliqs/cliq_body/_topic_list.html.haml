@@ -7,7 +7,7 @@
         Interest
       %th
         Category
-      -if can? :update, @cliq
+      -if can? :update, @cliq && current_page?(admin_cliq_path(@cliq))
         %th
           Reports
   %tbody
@@ -19,6 +19,6 @@
           =t.exp
         %td
           =render "shared/cliq", desc: t.cliq
-        -if can? :update, @cliq
+        -if can? :update, @cliq && current_page?(admin_cliq_path(@cliq))
           %td
             =t.reports

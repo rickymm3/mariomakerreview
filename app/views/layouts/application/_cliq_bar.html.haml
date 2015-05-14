@@ -1,12 +1,12 @@
-.container#page-top-margin
-  %nav.navbar.navbar-default{role:'navigation'}
+%nav.navbar.navbar-default{role:'navigation'}
+  .container
     .container-fluid
       .navbar-header
         =render "layouts/application/cliq_bar/cliq_brand" if @cliq
-      %div.collapse.navbar-collapse#navbar-collapse-1
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav
           =render "layouts/application/cliq_bar/cliq_history" if @cliq.present?
           =render "layouts/application/cliq_bar/cliq_search" if @cliq.present? && @create != true
         %ul.nav.navbar-nav.navbar-right
           =render "layouts/application/cliq_bar/account"
-  =render "layouts/application/cliq_bar/categories"
+=render "layouts/application/cliq_bar/categories"
