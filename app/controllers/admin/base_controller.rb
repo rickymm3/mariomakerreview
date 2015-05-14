@@ -9,7 +9,7 @@ class Admin::BaseController < ApplicationController
   protected
 
   def require_admin
-    unless current_user.try(:admin?)
+    unless current_user.try(:is_admin?)
       render404 and return false
     end
   end

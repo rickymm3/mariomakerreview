@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   include CliqsHelper
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :load_index
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
   def render404
     render :file => File.join(Rails.root, 'public', '404.html'), :status => 404, :layout => false
     return true

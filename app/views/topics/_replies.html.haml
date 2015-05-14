@@ -1,6 +1,11 @@
 -@replies.each do |reply|
   .well
-    =render "top_settings", topicreply:reply
+    .dropdown.pull-right
+      -if reply.user
+        ="by: #{reply.user.username}"
+      -else
+        ="by: User has been deleted"
+      =render "settings", topicreply:reply  if current_user
     %br
     =reply.body.html_safe
 

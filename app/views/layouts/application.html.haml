@@ -21,14 +21,16 @@
     = yield :head
 
     %body
-    .cliq_bar
-      = render "layouts/application/cliq_bar"
-    .container
-      .row
-        .col-lg-12.col-md-12.col-sm-12
-          = bootstrap_flash
-          = yield
+      .cliq_bar
+        #fb-root
+        = render "layouts/application/cliq_bar"
+      .container
+        .row
+          .col-lg-12.col-md-12.col-sm-12
+            = bootstrap_flash
+            = yield
       %footer
         %p &copy; Company 2014
+
 
 

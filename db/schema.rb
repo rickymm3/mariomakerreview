@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511183453) do
+ActiveRecord::Schema.define(version: 20150514144219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,31 @@ ActiveRecord::Schema.define(version: 20150511183453) do
     t.datetime "updated_at"
   end
 
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "controller_name"
+    t.string   "action_name"
+    t.string   "view_name"
+    t.string   "request_hash"
+    t.string   "ip_address"
+    t.string   "session_hash"
+    t.text     "message"
+    t.text     "referrer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
+  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.integer  "topic_id"
     t.integer  "user_id"
@@ -68,23 +93,33 @@ ActiveRecord::Schema.define(version: 20150511183453) do
     t.datetime "updated_at"
   end
 
-  create_table "reports", force: :cascade do |t|
-    t.integer  "topic_id"
+  create_table "reply_reports", force: :cascade do |t|
     t.integer  "reply_id"
-    t.integer  "number"
+    t.string   "user_comment"
+    t.integer  "user_id"
+    t.integer  "report_reason_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "roles_users", id: false, force: :cascade do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "topic_reports", force: :cascade do |t|
+    t.integer  "topic_id"
+    t.integer  "user_id"
+    t.string   "user_comment"
+    t.integer  "report_reason_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -95,10 +130,20 @@ ActiveRecord::Schema.define(version: 20150511183453) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
-    t.integer  "exp",        default: 0, null: false
+    t.integer  "exp",           default: 0,    null: false
+    t.boolean  "active",        default: true
+    t.string   "remove_reason"
+    t.integer  "reports"
+    t.boolean  "locked"
   end
 
   add_index "topics", ["slug"], name: "index_topics_on_slug", unique: true, using: :btree
+
+  create_table "user_roles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+    t.integer "cliq_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false

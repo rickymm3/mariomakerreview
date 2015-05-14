@@ -1,0 +1,12 @@
+=simple_form_for [@topic_report],
+    :url => url_for(:action => 'report'),
+    :method => 'post',
+    remote: true do |f|
+  .modal-body
+    %div.field
+      =f.label :user_comment
+      =f.text_field :user_comment, class: "form-control"
+      =f.hidden_field 'topic_id', value: @topic.id
+      %br
+      =f.input :report_reason_id, collection: report_reasons.sort.sort.map {|k,v| [v,k]}, class:'form-control'
+      =f.submit 'Report',  class: "btn btn-default"

@@ -2,11 +2,14 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :set_cliq, only: [:new, :show, :create]
   before_action :get_replies, only: [:show]
-  before_action :authenticate_user!, :only => [:new, :create]
-
+  before_action :authenticate_user!, :only => [:new, :create, :report]
+  load_and_authorize_resource
+  skip_authorize_resource :only => :show
 
   def show
-    @topics = Topic.find(params[:id])
+    @topic = Topic.find(params[:id])
+    @is_mod = check_if_mod(@topic)
+    impressionist(@topic, "message...")
   end
 
   def create
@@ -46,6 +49,14 @@ class TopicsController < ApplicationController
   end
 
   private
+
+  def check_if_mod(topic)
+    # if current_user
+    #   current_user.roles.where(topic_id: topic.id, user_id: current_user.id, role:'mod').present?
+    # else
+    #   false
+    # end
+  end
 
   def get_replies
     @replies = @topic.replies

@@ -12,7 +12,28 @@ module ApplicationHelper
   end
 
   def facebook_image(uid)
-    "http://graph.facebook.com/#{uid}/picture"
+    if uid
+      "http://graph.facebook.com/#{uid}/picture"
+    else
+      ""
+    end
+  end
+
+  def report_reasons
+    {
+        1 => "flaming",
+        2 => "trolling",
+        3 => "inappropriate",
+        4 => "off-topic"
+    }
+  end
+
+  def roles
+    {
+        1 => "super_admin",
+        2 => "admin",
+        3 => "board_mod"
+    }
   end
 
 end

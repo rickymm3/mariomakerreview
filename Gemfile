@@ -25,6 +25,7 @@ gem 'simple_form'
 gem 'ckeditor_rails'
 gem 'friendly_id'
 gem 'figaro'
+gem 'impressionist'
 
 group :test, :development do
   gem "rspec-rails"

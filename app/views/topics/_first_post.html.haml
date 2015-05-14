@@ -1,6 +1,11 @@
 %h2
   =@topic.subject
 .well
-  =render "top_settings", topicreply:@topic
+  .dropdown.pull-right
+    -if @topic.user
+      ="by: #{@topic.user.username}"
+    -else
+      ="by: User has been deleted"
+    =render "settings", topicreply:@topic if current_user
   %br
   =@topic.body.html_safe

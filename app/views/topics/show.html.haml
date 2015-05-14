@@ -1,3 +1,7 @@
 =render "reply_bar", topic:@topic
-=render "first_post"
-=render "replies"
+.modal.fade#report-modal
+-if @topic.active?
+  =render "first_post"
+  =render "replies"
+-else
+  =render "removed"

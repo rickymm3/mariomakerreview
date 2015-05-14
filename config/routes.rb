@@ -8,6 +8,13 @@ BaseApp::Application.routes.draw do
     resources :replies
   end
 
+  resources :topic_report do
+    member do
+      post :report
+      get :report_ajax
+    end
+  end
+
   root :to => "cliqs#index"
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }
@@ -16,6 +23,7 @@ BaseApp::Application.routes.draw do
   get "/admin" => "admin/base#index", :as => "admin"
   namespace "admin" do
     resources :users
+    resources :reports
   end
   resources :users, only: [:show]
 
