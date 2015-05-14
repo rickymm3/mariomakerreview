@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e7bb112c-0db7-4039-a844-7816565e2298" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application/_cliq_bar.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application/_cliq_bar.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application/cliq_bar/_cliq_brand.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application/cliq_bar/_cliq_brand.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cliqs/cliq_body/_topic_list.html.haml" afterPath="$PROJECT_DIR$/app/views/cliqs/cliq_body/_topic_list.html.haml" />
-    </list>
+    <list default="true" id="e7bb112c-0db7-4039-a844-7816565e2298" name="Default" comment="" />
     <ignored path="cliq-social.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
