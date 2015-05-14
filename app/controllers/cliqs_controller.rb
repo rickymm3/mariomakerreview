@@ -51,6 +51,7 @@ class CliqsController < ApplicationController
   end
 
   def admin
+    @admin = true
     @descendants = @cliq.descendants.select(:id).order("updated_at desc").limit(10).collect(&:id)
     @descendants << @cliq.id
     @topics = Topic.where(cliq_id: @descendants).where("reports > ?", 0).order("updated_at desc").limit(10)

@@ -1,10 +1,11 @@
-%ul.list-inline.align-top.category-list
-  %li.label-custom1 Categories:
+.container
+  %ul.list-inline.align-top.category-list
+    %li.label-custom1 Categories:
 
-  -cliq_latest = @categories
-  -if cliq_latest.count > 0
-    -@categories.each do |latest|
-      %li
-        =render "shared/cliq", desc: latest
-  -else
-    %li No cliq info currently
+    -cliq_latest = @categories
+    -if cliq_latest.count > 0
+      -@categories.each do |latest|
+        %li
+          =render "shared/cliq", desc: latest
+    -else
+      %li No cliq info currently

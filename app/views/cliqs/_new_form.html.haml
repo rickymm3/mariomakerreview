@@ -1,7 +1,7 @@
 = simple_form_for @cliq do |f|
   =f.hidden_field :parent_id, value: @cliq.parent.id
   =f.hidden_field :title, value: @cliq.name
-  -if current_user.is_admin?
+  -if current_user.admin?
     =f.label :is_category?
     %br
     =f.check_box :is_category
