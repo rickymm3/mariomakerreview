@@ -1,6 +1,7 @@
-.pull-left
-  %ul.list-inline
-    %li
-      Filter:
-    %li
-      = link_to "Popular", cliq_path(@cliq, :filter => "popular")
+%li
+  = link_to "Filter:", cliq_path(@cliq)
+-if can? :update, @cliq
+  %li
+    = link_to "Admin Mode", admin_cliq_path(@cliq)
+%li
+  = link_to "Popular", cliq_path(@cliq, :filter => "popular")

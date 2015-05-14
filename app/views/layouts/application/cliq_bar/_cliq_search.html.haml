@@ -1,7 +1,8 @@
-= form_tag cliq_path(@cliq), method:'get',class:'navbar-form navbar-left input-append' do
-  .form-group
-    = search_field_tag :search, params[:search],
-      type: 'search',
-      class: 'form-control',
-      placeholder: "Search for a Cliq"
-    =button_tag '<i class="fa fa-search"></i>'.html_safe, class: 'btn btn-default', name: nil
+%li
+  = form_tag cliq_path(@cliq), method:'get',class:'navbar-form navbar-left input-append' do
+    .form-group
+      = search_field_tag :search, params[:search],
+        type: 'search',
+        class: 'form-control',
+        placeholder: "Search for a Cliq"
+      =button_tag '<i class="fa fa-search"></i>'.html_safe, class: 'btn btn-default', name: nil

@@ -1,3 +1,6 @@
-.well.well-sm.clearfix
-  =render "cliqs/cliq_body/filter_list"
-  =render "cliqs/cliq_body/new_thread"
+.clearfix
+  %nav.navbar
+    %ul.nav.navbar-nav
+      =render "cliqs/cliq_body/filter_list"
+    %ul.nav.navbar-right
+      =render "cliqs/cliq_body/new_thread"

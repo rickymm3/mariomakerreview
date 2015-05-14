@@ -1,8 +1,10 @@
 class CliqsController < ApplicationController
-  before_action :set_cliq, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_cliq, only: [:index, :show, :edit, :update, :destroy, :admin]
   before_action :set_search, only: [:index, :show]
   before_action :set_filter, only: [:index, :show]
   before_action :authenticate_user!, :except => [:index, :show]
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:show, :index]
 
   def index
     @descendants = @cliq.descendants.select(:id).order("updated_at desc").limit(10).collect(&:id)
@@ -46,6 +48,12 @@ class CliqsController < ApplicationController
         format.json { render json: @newcliq.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def admin
+    @descendants = @cliq.descendants.select(:id).order("updated_at desc").limit(10).collect(&:id)
+    @descendants << @cliq.id
+    @topics = Topic.where(cliq_id: @descendants).where("reports > ?", 0).order("updated_at desc").limit(10)
   end
 
   private

@@ -2,6 +2,9 @@ BaseApp::Application.routes.draw do
 
   resources :cliqs do
     resources :topics
+    member do
+      get :admin
+    end
   end
 
   resources :topics do

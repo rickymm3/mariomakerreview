@@ -7,6 +7,9 @@
         Interest
       %th
         Category
+      -if can? :update, @cliq
+        %th
+          Reports
   %tbody
     -topics.each do |t|
       %tr
@@ -16,3 +19,6 @@
           =t.exp
         %td
           =render "shared/cliq", desc: t.cliq
+        -if can? :update, @cliq
+          %td
+            =t.reports

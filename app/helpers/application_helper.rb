@@ -28,12 +28,11 @@ module ApplicationHelper
     }
   end
 
-  def roles
-    {
-        1 => "super_admin",
-        2 => "admin",
-        3 => "board_mod"
-    }
-  end
+  # def nav_link(text, path)
+  #   options = current_page?(path) ? { class: "active" } : {}
+  #   content_tag(:li, options) do
+  #     link_to text, path
+  #   end
+  # end
 
 end

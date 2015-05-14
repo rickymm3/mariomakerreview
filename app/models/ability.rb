@@ -13,6 +13,12 @@ class Ability
       can :create, Topic
       can :create, Reply
       can :create, Cliq
+      can :admin, Cliq do |cliq| check_if_mod_for_cliq(user,cliq)
+        check_if_mod_for_cliq(user,cliq)
+      end
+      can :update, Cliq do |cliq| check_if_mod_for_cliq(user,cliq)
+        check_if_mod_for_cliq(user,cliq)
+      end
       can :update, Topic do |topic|
         topic.try(:user) == user || check_if_mod_for_topic(user,topic)
       end
@@ -41,6 +47,10 @@ class Ability
     end
 
     private
+
+    def check_if_mod_for_cliq(user,cliq)
+      user.roles.any? {|role| role.name == 'mod' && Cliq.find(role.cliq_id).id == (cliq.id)}
+    end
 
     def check_if_mod_for_topic(user,topic)
       user.roles.any? {|role| role.name == 'mod' && Cliq.find(role.cliq_id).id == topic.cliq.id}
