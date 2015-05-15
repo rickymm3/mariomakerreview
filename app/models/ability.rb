@@ -49,7 +49,7 @@ class Ability
     private
 
     def check_if_mod_for_cliq(user,cliq)
-      user.roles.any? {|role| role.name == 'mod' && Cliq.find(role.cliq_id).id == (cliq.id)}
+      user.roles.any? {|role| role.name == 'mod' && Cliq.find(role.cliq_id).id == cliq.id}
     end
 
     def check_if_mod_for_topic(user,topic)
