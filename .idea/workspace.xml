@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7bb112c-0db7-4039-a844-7816565e2298" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/admin/base_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/admin/base_controller.rb" />
     </list>
     <ignored path="cliq-social.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,81 +38,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.haml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.html.haml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6107595" vertical-offset="4" max-vertical-offset="690">
+            <state vertical-scroll-proportion="-16.083334" vertical-offset="4" max-vertical-offset="690">
               <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/cliqs/index.js.erb">
+      <file leaf-file-name="ability.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+              <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/cliqs/show.html.haml">
+      <file leaf-file-name="_account.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application/cliq_bar/_account.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+            <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="345">
+              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/cliqs/index.html.haml">
+      <file leaf-file-name="base_controller.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/admin/base_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.044843048" vertical-offset="0" max-vertical-offset="669">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.js.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/cliqs/show.js.erb">
+      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
-              <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="795">
+              <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_cliq_body.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/cliqs/_cliq_body.html.haml">
+      <file leaf-file-name="badge_rules.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/merit/badge_rules.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="150">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1245">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_info_bar.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/cliqs/cliq_body/_info_bar.html.haml">
+      <file leaf-file-name="rules_badge_methods.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.2.0/gems/merit-2.3.2/lib/merit/rules_badge_methods.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="165">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_new_thread.html.haml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/cliqs/cliq_body/_new_thread.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="105">
-              <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+              <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -120,8 +111,18 @@
       <file leaf-file-name="application.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="1320">
-              <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="664" max-vertical-offset="1320">
+              <caret line="72" column="28" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="1110">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -143,7 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/topics_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/topics/_first_post.html.haml" />
         <option value="$PROJECT_DIR$/app/views/topics/_replies.html.haml" />
         <option value="$PROJECT_DIR$/app/views/layouts/application/cliq_bar/_account.html.haml" />
@@ -189,11 +189,12 @@
         <option value="$PROJECT_DIR$/app/views/cliqs/cliq_body/_filter_list.html.haml" />
         <option value="$PROJECT_DIR$/app/views/cliqs/cliq_body/_info_bar.html.haml" />
         <option value="$PROJECT_DIR$/app/views/cliqs/cliq_body/_new_thread.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
         <option value="$PROJECT_DIR$/app/views/cliqs/_cliq_body.html.haml" />
         <option value="$PROJECT_DIR$/app/views/cliqs/show.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/cliqs_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/admin/base_controller.rb" />
       </list>
     </option>
   </component>
@@ -327,6 +328,62 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cliq-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cliq-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cliq_bar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cliq-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cliq-rails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -360,29 +417,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cliq-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cliq-rails" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -664,30 +703,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application/cliq_bar/_cliq_brand.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application/_cliq_bar.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="255">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application/cliq_bar/_categories.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="240">
-          <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cliqs/new.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
@@ -700,14 +715,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="240">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="381" max-vertical-offset="1050">
-          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -800,14 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="795">
-          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/registrations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
@@ -870,14 +869,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="690">
           <caret line="30" column="3" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/merit/badge_rules.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.089286" vertical-offset="390" max-vertical-offset="1245">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -964,14 +955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.740741" vertical-offset="106" max-vertical-offset="1110">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/cliqs.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
@@ -1008,14 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="105">
           <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="1320">
-          <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1070,8 +1045,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6107595" vertical-offset="4" max-vertical-offset="690">
+        <state vertical-scroll-proportion="-16.083334" vertical-offset="4" max-vertical-offset="690">
           <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="664" max-vertical-offset="1320">
+          <caret line="72" column="28" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="106" max-vertical-offset="1110">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="795">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/merit/badge_rules.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="1245">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.2.0/gems/merit-2.3.2/lib/merit/rules_badge_methods.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application/cliq_bar/_account.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="345">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/base_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.044843048" vertical-offset="0" max-vertical-offset="669">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
