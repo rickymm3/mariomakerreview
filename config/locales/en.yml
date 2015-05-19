@@ -1,4 +1,8 @@
 en:
+  merit:
+    granted_badge: "You earned the %{badge_name} badge"
+    granted_points: "granted %{points} points"
+    removed_badge: "You just lost the %{badge_name} badge"
   date:
     abbr_day_names:
     - Sun

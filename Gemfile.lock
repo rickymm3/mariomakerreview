@@ -65,6 +65,7 @@ GEM
       kaminari (~> 0.15)
       rails (~> 4.0)
       ransack (~> 1.2)
+    ambry (0.3.1)
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
     arel (6.0.0)
@@ -173,6 +174,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    merit (2.3.2)
+      ambry (~> 0.3.0)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.5.3)
@@ -339,6 +342,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   less-rails
+  merit
   omniauth-facebook
   pg
   pry
