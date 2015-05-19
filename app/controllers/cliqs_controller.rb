@@ -54,7 +54,7 @@ class CliqsController < ApplicationController
     @admin = true
     @descendants = @cliq.descendants.select(:id).order("updated_at desc").limit(10).collect(&:id)
     @descendants << @cliq.id
-    @topics = Topic.where(cliq_id: @descendants).where("reports > ?", 0).order("updated_at desc").limit(10)
+    @topics = Topic.where(cliq_id: @descendants).where("reports > ?", 0).order("updated_at desc").page(params[:page]).limit(10)
   end
 
   private
