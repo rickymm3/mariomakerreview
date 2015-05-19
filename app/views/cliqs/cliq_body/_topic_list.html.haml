@@ -1,6 +1,7 @@
-%table.table.table-striped
+=paginate @topics
+%table.table.table-striped#topics
   %thead
-    %tr
+    %tr#topics
       %th
         Subject
       %th
@@ -10,15 +11,5 @@
       -if @admin
         %th
           Reports
-  %tbody
-    -topics.each do |t|
-      %tr
-        %td
-          =link_to t.subject, topic_path(t)
-        %td
-          =t.exp
-        %td
-          =render "shared/cliq", desc: t.cliq
-        -if @admin
-          %td
-            =t.reports
+  %tbody.topic-page
+    =render @topics

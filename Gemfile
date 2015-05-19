@@ -27,6 +27,7 @@ gem 'friendly_id'
 gem 'figaro'
 gem 'impressionist'
 gem 'merit'
+gem 'kaminari'
 
 group :test, :development do
   gem "rspec-rails"

@@ -40,11 +40,22 @@ module Merit
       end
 
       grant_on 'topics#create', badge_id: 4 do |topic|
-        topic.user.topics.count == 3
-      end
-
-      grant_on 'topics#create', badge_id: 5 do |topic|
-        topic.user.topics.count == 4
+        hash = Hash.new
+        topic.user.topics.each do |topic|
+          if hash.has_key?(topic.cliq.id)
+            hash[topic.cliq.id] += 1
+          else
+            hash[topic.cliq.id] = 1
+          end
+        end
+        hash.each do |key,value|
+          if value = 5
+            true
+          else
+            false
+            break
+          end
+        end
       end
 
 

@@ -10,7 +10,9 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require ckeditor-jquery
+//= require jquery.infinitescroll
 //= require_tree ./ckeditor
+//= require cliqs
 // //= require_tree .
 
 $( document ).ready(function() {

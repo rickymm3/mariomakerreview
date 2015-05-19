@@ -1,0 +1,10 @@
+%tr.topic
+  %td
+    =link_to topic.subject, topic_path(topic)
+  %td
+    =topic.exp
+  %td
+    =render "shared/cliq", desc: topic.cliq
+  -if @admin
+    %td
+      =topic.reports

@@ -26,20 +26,16 @@ badge_id = 0
   name: 'just-registered'
 },{
   id: (badge_id = badge_id+1),
-  name: "first-post",
+  name: "First Post",
   description: "Congrats on your first post!"
 },{
   id: (badge_id = badge_id+1),
-  name: "multi-poster",
+  name: "Multi Poster",
   description: "10 Posts! WOWOWOW!"
 },{
   id: (badge_id = badge_id+1),
-  name: "flash-poster",
-  description: "You received a flash message"
-},{
-  id: (badge_id = badge_id+1),
-  name: "super-poster",
-  description: "You have posted a TON of messages!"
+  name: "Topic Lover",
+  description: "You posted 5 times in a single topic!"
 }].each do |attrs|
   Merit::Badge.create! attrs
 end
