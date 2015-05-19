@@ -51,6 +51,7 @@ module Merit
         hash.each do |key,value|
           if value == 5
             true
+            break
           else
             false
             break
