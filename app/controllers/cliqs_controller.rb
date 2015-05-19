@@ -14,7 +14,7 @@ class CliqsController < ApplicationController
 
   def show
     unless @search['temp']
-      @descendants = @cliq.descendants.select(:id).order("updated_at desc").page(params[:page]).limit(5).collect(&:id)
+      @descendants = @cliq.descendants.select(:id).order("updated_at desc").page(params[:page]).limit(10).collect(&:id)
       @descendants << @cliq.id
     end
     if @filter

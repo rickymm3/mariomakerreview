@@ -4,9 +4,11 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require_tree .
+ *= require cliqs
  *= require jquery.minicolors
 
 */
+
 .top48 {
     margin-top: 48px;
 }
@@ -65,4 +67,17 @@ ul {
     float:left;
     padding-left: 10px!important;
     padding-bottom: 10px;
+}
+
+.filter-list {
+    background-color:white;
+  .new-thread{
+    padding-right: 6px;
+    padding-top: 4px;
+  }
+}
+
+.topics-border {
+  padding: 5px;
+  background-color: white;
 }
