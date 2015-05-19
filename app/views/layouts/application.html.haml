@@ -24,15 +24,16 @@
         #fb-root
         = render "layouts/application/cliq_bar"
       .container
-        .temp-badge
-          %h5 temp badge area:
-          -if current_user
-            -current_user.badges.each do |badge|
-              %li=badge.name
         .row
           .col-lg-12.col-md-12.col-sm-12
             = bootstrap_flash
             = yield
+        .panel
+          .temp-badge
+            %h5 temp badge area:
+            -if current_user
+              -current_user.badges.each do |badge|
+                %li=badge.name
       %footer
         %p &copy; Company 2014
 

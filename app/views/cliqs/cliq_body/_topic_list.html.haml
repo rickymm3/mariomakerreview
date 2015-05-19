@@ -1,4 +1,13 @@
-=paginate @topics
+.topic-cliq-name
+  -if @cliq.try(:ancestors).empty?
+    -parent_id = "1"
+  -else
+    -parent_id = @cliq.ancestry.split('/').last
+  =link_to parent_id do
+    %i.fa.fa-level-up
+  =@cliq.name.capitalize
+.pagination-container
+  =paginate @topics
 %table.table.table-striped#topics
   %thead
     %tr#topics

@@ -6,6 +6,7 @@
  *= require_tree .
  *= require cliqs
  *= require jquery.minicolors
+ *= require pagination
 
 */
 
@@ -70,7 +71,7 @@ ul {
 }
 
 .filter-list {
-    background-color:#e7e7e7;
+    background-color:#f8f8f8;
   .new-thread{
     padding-right: 6px;
     padding-top: 4px;
@@ -79,5 +80,16 @@ ul {
 
 .topics-border {
   padding: 5px;
-  background-color: #e7e7e7;
+  background-color: #f8f8f8;
+}
+
+.topic-cliq-name {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 10px 10px 10px 15px;
+}
+
+.pagination-container
+{
+  padding-left: 15px;
 }

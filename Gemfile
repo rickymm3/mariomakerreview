@@ -27,7 +27,6 @@ gem 'friendly_id'
 gem 'figaro'
 gem 'impressionist'
 gem 'merit'
-gem 'kaminari'
 gem 'sass-rails'
 
 group :test, :development do

@@ -49,7 +49,7 @@ module Merit
           end
         end
         hash.each do |key,value|
-          if value = 5
+          if value == 5
             true
           else
             false
