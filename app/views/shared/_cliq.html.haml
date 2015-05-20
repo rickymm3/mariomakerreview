@@ -1,7 +1,8 @@
--if desc.ancestors.count < 2
-  -bgcolor = desc.color
+-if cliq.ancestors.count < 2
+  -bgcolor = cliq.color
 -else
-  -bgcolor = desc.ancestors[1].color
-
-=link_to desc.name.capitalize, cliq_path(desc), class: 'btn btn-default cliq-active',
-  style: "background-color: ##{bgcolor}"
+  -bgcolor = cliq.ancestors[1].color
+.cliq
+  =link_to cliq_path(cliq) do
+    .cliq-color{style: "background-color: ##{bgcolor}"}
+    =cliq.name.capitalize

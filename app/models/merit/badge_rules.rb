@@ -48,14 +48,8 @@ module Merit
             hash[topic.cliq.id] = 1
           end
         end
-        hash.each do |key,value|
-          if value == 5
-            true
-            break
-          else
-            false
-            break
-          end
+        hash.all? do |key,value|
+          value >= 5
         end
       end
 

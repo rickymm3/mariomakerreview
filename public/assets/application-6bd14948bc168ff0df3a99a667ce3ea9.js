@@ -14592,10 +14592,10 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
     $.infinitescroll.defaults = {
         loading: {
             finished: undefined,
-            finishedMsg: "<em>No more posts for this Cliq.</em>",
-            img: 'data:image/gif;',
+            finishedMsg: "<div class'text-center'>No more topics in this Cliq</div>",
+            img: '../images/ajax-loader.gif',
             msg: null,
-            msgText: '<em></em>',
+            msgText: '<div>Loading the next set of threads...</div>',
             selector: null,
             speed: 'fast',
             start: undefined

@@ -7,20 +7,20 @@ class CliqsController < ApplicationController
   skip_authorize_resource :only => [:show, :index]
 
   def index
-    @descendants = @cliq.descendants.select(:id).order("updated_at desc").limit(10).collect(&:id)
+    @descendants = get_descendants(10)
     @descendants << @cliq.id
-    @topics = Topic.where(cliq_id: @descendants).order("updated_at desc").page(params[:page]).limit(5)
+    @topics = get_topics("updated_at desc", 5)
   end
 
   def show
     unless @search['temp']
-      @descendants = @cliq.descendants.select(:id).order("updated_at desc").page(params[:page]).limit(10).collect(&:id)
+      @descendants = get_descendants(10)
       @descendants << @cliq.id
     end
     if @filter
-      @topics = Topic.where(cliq_id: @descendants).order("exp desc").page(params[:page]).limit(5)
+      @topics = get_topics("exp desc", 5)
     else
-      @topics = Topic.where(cliq_id: @descendants).order("updated_at desc").page(params[:page]).limit(5)
+      @topics = get_topics("updated_at desc", 5)
     end
   end
 
@@ -52,12 +52,20 @@ class CliqsController < ApplicationController
 
   def admin
     @admin = true
-    @descendants = @cliq.descendants.select(:id).order("updated_at desc").limit(10).collect(&:id)
+    @descendants = get_descendants(10)
     @descendants << @cliq.id
     @topics = Topic.where(cliq_id: @descendants).where("reports > ?", 0).order("updated_at desc").page(params[:page]).limit(10)
   end
 
   private
+
+  def get_topics(order, limit)
+    Topic.where(cliq_id: @descendants).order(order).page(params[:page]).limit(limit)
+  end
+
+  def get_descendants(limit)
+    @cliq.descendants.select(:id).order("updated_at desc").limit(limit).collect(&:id)
+  end
 
   def set_filter
     @filter = params[:filter] if params[:filter]
@@ -74,12 +82,12 @@ class CliqsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def cliq_params
-    params.require(:cliq).permit(:subject, :body, :user_id)
+    params.require(:cliq).permit(:subject, :bodyx, :user_id, :search)
   end
 
   def set_search
     @search = {'match' => nil}
-    @search = Cliq.search(params[:search], @cliq) if params[:search]
+    @search = Cliq.search(params[:cliq][:search], @cliq) if params.include?(:cliq)
     #automatically return the correct search if it matches
     # redirect_to(@search['match']) if @search['match'].present?
   end

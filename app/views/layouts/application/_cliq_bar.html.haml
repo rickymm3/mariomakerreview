@@ -6,6 +6,7 @@
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
         %ul.nav.navbar-nav
           =render "layouts/application/cliq_bar/cliq_history" if @cliq.present?
+        .col-sm-3.col-md-3.nav-input
           =render "layouts/application/cliq_bar/cliq_search" if @cliq.present? && @create != true
         %ul.nav.navbar-nav.navbar-right
           =render "layouts/application/cliq_bar/account"

@@ -15,5 +15,14 @@ body {
 }
 
 table {
+  .subject {
+    padding-left: 20px;
+  }
     background-color: white;
+    a {
+      padding-left: 20px;
+      text-decoration: none!important;
+      font-size: 18px;
+      color: #4b4b4b;
+    }
 }

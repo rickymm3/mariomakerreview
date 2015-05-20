@@ -1,7 +1,7 @@
 class Cliq < ActiveRecord::Base
   has_ancestry
   has_many :topic, :foreign_key => 'cliq_id'
-
+  attr_accessor :search
   def self.search(search, current_cliq)
     hash = Hash.new
     hash['results'] = Cliq.similar_search(search)

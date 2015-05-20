@@ -1,8 +1,8 @@
-%ul
+%ul.list-group.list-inline
   -full_ancestry(cliq).each do |desc|
     -unless desc.name == 'cliq' || desc.id.blank?
       %li
-        =render "shared/cliq", desc: desc
+        =render "shared/cliq", cliq: desc
   -if cliq.id.blank?
     %li
       =link_to '#' do

@@ -1,25 +1,39 @@
-.create-new-cliq
-  = "No Match - Create new Cliq for: "
+.panel.create-new-cliq
+  %div
+    %p
+      We weren't able to find a Cliq with that name.
+    %p
+      If you would like, you can create this Cliq!
   %ul.history
     -@cliq.ancestors.each do |desc|
-      -if desc.name == 'Cliq'
-        %li
-          %a.left.brand(href="/")
-            Cliq!
-            ='<i class="fa fa-angle-right"></i>'.html_safe
-      -else
-        %li
-          =link_to cliq_path(desc) do
-            %span.cliq-btn
-              =desc.name.capitalize
-            %span.carrot
+      %li
+        =link_to cliq_path(desc) do
+          %span.cliq-btn
+            =desc.name.capitalize
+        %span.carrot
           %i.fa.fa-angle-right
     %li
       =link_to cliq_path(@cliq) do
         %span.cliq-btn
           =@cliq.name.capitalize
-        %span.carrot
-      %i.fa.fa-angle-right
-
+      %span.carrot
+        %i.fa.fa-angle-right
     %li
-      = link_to @search['temp'].name, new_cliq_path( cliq_id: @cliq.id, new:@search['temp'].name )
+      =link_to cliq_path(@cliq) do
+        %span.cliq-btn
+          =@search['temp'].name.capitalize
+  %p
+    You will be creating the Cliq at the destination above.
+  %p
+    If you are sure this is the correct destination, you can being the process by selection "Create"
+    below and you will automatically be taken to the brand new board!
+    Once there, you will be able to create 'New Thread'. After posting you will have permanently
+    created the Cliq.
+  %p
+    = link_to "Create #{@search['temp'].name.capitalize}", new_cliq_path( cliq_id: @cliq.id, new:@search['temp'].name ),
+       class: "btn btn-default"
+
+
+
+
+
