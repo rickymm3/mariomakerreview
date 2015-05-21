@@ -37,7 +37,6 @@ class CliqsController < ApplicationController
   end
 
   def create
-    ERROR
     cliq = Cliq.find(params[:cliq][:parent_id])
     @newcliq = cliq.children.create(cliq_params)
     respond_to do |format|
