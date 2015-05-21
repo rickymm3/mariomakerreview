@@ -7,7 +7,7 @@
         %ul.nav.navbar-nav
           =render "layouts/application/cliq_bar/cliq_history" if @cliq.present?
         .col-sm-3.col-md-3.nav-input
-          =render "layouts/application/cliq_bar/cliq_search" if @cliq.present? && @create != true
+          =render "layouts/application/cliq_bar/cliq_search" if @cliq.present?
         %ul.nav.navbar-nav.navbar-right
           =render "layouts/application/cliq_bar/account"
 =render "layouts/application/cliq_bar/categories"

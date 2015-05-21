@@ -19,9 +19,8 @@
       %span.carrot
         %i.fa.fa-angle-right
     %li
-      =link_to cliq_path(@cliq) do
-        %span.cliq-btn
-          =@search['temp'].name.capitalize
+      %span.cliq-btn
+        =@new_cliq.name
   %p
     You will be creating the Cliq at the destination above.
   %p
@@ -30,10 +29,5 @@
     Once there, you will be able to create 'New Thread'. After posting you will have permanently
     created the Cliq.
   %p
-    = link_to "Create #{@search['temp'].name.capitalize}", new_cliq_path( cliq_id: @cliq.id, new:@search['temp'].name ),
-       class: "btn btn-default"
-
-
-
-
-
+    Create a new cliq
+    =render "new_form"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520211420) do
+ActiveRecord::Schema.define(version: 20150521201127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150520211420) do
     t.datetime "updated_at"
     t.boolean  "is_main"
     t.string   "color",       default: "ffffff"
+    t.string   "cached_name"
   end
 
   add_index "cliqs", ["ancestry"], name: "index_cliqs_on_ancestry", using: :btree

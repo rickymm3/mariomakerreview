@@ -28,6 +28,10 @@ module ApplicationHelper
     }
   end
 
+  def cliq_name(cliq)
+    cliq.name
+  end
+
   # def nav_link(text, path)
   #   options = current_page?(path) ? { class: "active" } : {}
   #   content_tag(:li, options) do

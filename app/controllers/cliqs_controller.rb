@@ -1,6 +1,6 @@
 class CliqsController < ApplicationController
-  before_action :set_cliq, only: [:index, :show, :edit, :update, :destroy, :admin]
-  before_action :set_search, only: [:index, :show]
+  before_action :set_cliq, only: [:show, :edit, :update, :destroy, :admin]
+  before_action :set_index_cliq, only: [:index]
   before_action :set_filter, only: [:index, :show]
   before_action :authenticate_user!, :except => [:index, :show]
   load_and_authorize_resource
@@ -13,10 +13,8 @@ class CliqsController < ApplicationController
   end
 
   def show
-    unless @search['temp']
-      @descendants = get_descendants(10)
-      @descendants << @cliq.id
-    end
+    @descendants = get_descendants(10)
+    @descendants << @cliq.id
     if @filter
       @topics = get_topics("exp desc", 20)
     else
@@ -24,29 +22,38 @@ class CliqsController < ApplicationController
     end
   end
 
+  # def new
+  #   @top_cliq = Cliq.where(is_main:true).first
+  #   current_cliq = Cliq.find(params[:cliq_id])
+  #   @cliq = Cliq.new(name:params[:new], parent: current_cliq)
+  #   @create = true
+  # end
+
   def new
-    @top_cliq = Cliq.where(is_main:true).first
-    current_cliq = Cliq.find(params[:cliq_id])
-    @cliq = Cliq.new(name:params[:new], parent: current_cliq)
     @create = true
+    @cliq = Cliq.find(cliq_params[:parent_id])
+    @search = set_search
+    @new_cliq = Cliq.new(cliq_params)
   end
 
   def create
     cliq = Cliq.find(params[:cliq][:parent_id])
-    if params[:cliq][:is_category] == '1'
-      @newcliq = cliq.children.create name: params[:cliq][:title].downcase, is_category: true
-    else
-      @newcliq = cliq.children.create name: params[:cliq][:title].downcase
-    end
-
+    @newcliq = cliq.children.create(cliq_params)
     respond_to do |format|
-      if @newcliq
+      if @newcliq.id
         format.html { redirect_to @newcliq, notice: 'Cliq was successfully created.' }
         format.json { render action: 'show', status: :created, location: @newcliq }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @newcliq.errors, status: :unprocessable_entity }
+        @oldcliq = Cliq.where(name:@newcliq.name, ancestry:@newcliq.ancestry).first
+        format.html { redirect_to @oldcliq, notice: "That Cliq already exists.  You've been taken there automatically" }
+        format.json { render json: @oldcliq.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def update
+    if params[:cliq].has_key(:parent_id)
+
     end
   end
 
@@ -71,23 +78,28 @@ class CliqsController < ApplicationController
     @filter = params[:filter] if params[:filter]
   end
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_cliq
-    if params[:id] || params[:id] == @top_cliq.id
-      @cliq = Cliq.find(params[:id])
-    else
-      @cliq = @top_cliq
-    end
+  def set_index_cliq
+    @cliq = Cliq.find(1)
   end
+  def set_cliq
+    @cliq = Cliq.find(params[:id])
+  end
+
+  # def set_cliq
+  #   if params[:id] || params[:id] == @top_cliq.id
+  #     @cliq = Cliq.find(params[:id])
+  #   else
+  #     @cliq = @top_cliq
+  #   end
+  # end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def cliq_params
-    params.require(:cliq).permit(:subject, :body, :user_id, :search)
+    params.require(:cliq).permit(:search, :parent_id, :name).merge(cached_name: params[:cliq][:name].downcase)
   end
 
   def set_search
-    @search = {'match' => nil}
-    @search = Cliq.search(params[:cliq][:search], @cliq) if params.include?(:cliq)
+    Cliq.search(params[:cliq][:name], @cliq)
     #automatically return the correct search if it matches
     # redirect_to(@search['match']) if @search['match'].present?
   end
