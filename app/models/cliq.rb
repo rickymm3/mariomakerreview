@@ -7,6 +7,7 @@ class Cliq < ActiveRecord::Base
     hash = Hash.new
     hash['results'] = Cliq.similar_search(search)
     hash['match'] = current_cliq.descendants.matching_search(search).first
+    hash['exact'] = Cliq.exact_search(search, current_cliq)
     hash
   end
 
@@ -23,6 +24,12 @@ class Cliq < ActiveRecord::Base
       where('cached_name = ?', "#{search.downcase}")
     else
       scoped
+    end
+  end
+
+  def self.exact_search(search, current_cliq)
+    if search
+      where('cached_name = ?', search.downcase).where(parent_id: current_cliq.id)
     end
   end
 
