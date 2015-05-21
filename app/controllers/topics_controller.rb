@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @is_mod = check_if_mod(@topic)
     if impressionist(@topic, "message...", :unique => [:session_hash])
-      @topic.increment(:exp, 1).save
+      @topic.update_columns(exp:@topic.increment(:exp, 1).exp)
     end
   end
 
