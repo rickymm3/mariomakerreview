@@ -39,7 +39,7 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    edit_permissions(params['id'], 'topic')
+    # edit_permissions(params['id'], 'topic')
   end
 
   def update
