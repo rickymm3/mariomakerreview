@@ -19,7 +19,7 @@ class RepliesController < ApplicationController
         format.json { render json: @reply.errors, status: :unprocessable_entity }
       end
     end
-    calculate_exp
+    calculate_exp(10)
   end
 
   def set_topic
@@ -45,11 +45,9 @@ class RepliesController < ApplicationController
 
   private
 
-  def calculate_exp
+  def calculate_exp(amount)
     #calculate this value based on times between posts
-    topic = Topic.find(params[:topic_id])
-    topic.exp = topic.exp + 1
-    topic.save
+    Topic.find(params[:topic_id]).increment(:exp, amount).save
   end
 
   def reply_params

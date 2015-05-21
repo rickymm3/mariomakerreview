@@ -9,7 +9,7 @@ class CliqsController < ApplicationController
   def index
     @descendants = get_descendants(10)
     @descendants << @cliq.id
-    @topics = get_topics("updated_at desc", 5)
+    @topics = get_topics("updated_at desc", 20)
   end
 
   def show
@@ -18,9 +18,9 @@ class CliqsController < ApplicationController
       @descendants << @cliq.id
     end
     if @filter
-      @topics = get_topics("exp desc", 5)
+      @topics = get_topics("exp desc", 20)
     else
-      @topics = get_topics("updated_at desc", 5)
+      @topics = get_topics("updated_at desc", 20)
     end
   end
 
@@ -54,7 +54,7 @@ class CliqsController < ApplicationController
     @admin = true
     @descendants = get_descendants(10)
     @descendants << @cliq.id
-    @topics = Topic.where(cliq_id: @descendants).where("reports > ?", 0).order("updated_at desc").page(params[:page]).limit(10)
+    @topics = Topic.where(cliq_id: @descendants).where("reports > ?", 0).order("updated_at desc").page(params[:page]).limit(20)
   end
 
   private
@@ -82,7 +82,7 @@ class CliqsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def cliq_params
-    params.require(:cliq).permit(:subject, :bodyx, :user_id, :search)
+    params.require(:cliq).permit(:subject, :body, :user_id, :search)
   end
 
   def set_search

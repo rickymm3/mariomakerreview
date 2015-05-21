@@ -9,7 +9,9 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @is_mod = check_if_mod(@topic)
-    impressionist(@topic, "message...")
+    if impressionist(@topic, "message...", :unique => [:session_hash])
+      @topic.increment(:exp, 1).save
+    end
   end
 
   def create

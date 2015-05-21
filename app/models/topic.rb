@@ -4,6 +4,6 @@ class Topic < ActiveRecord::Base
   has_many :topic_report
   belongs_to :user
   has_many :replies
-  is_impressionable
+  is_impressionable :counter_cache => true, :unique => true
 
 end
