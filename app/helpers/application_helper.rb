@@ -28,6 +28,10 @@ module ApplicationHelper
     }
   end
 
+  def get_parent_id(cliq)
+    cliq.ancestry.split("/").last.to_i
+  end
+
   # def nav_link(text, path)
   #   options = current_page?(path) ? { class: "active" } : {}
   #   content_tag(:li, options) do

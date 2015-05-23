@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521201127) do
+ActiveRecord::Schema.define(version: 20150522170053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20150521201127) do
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
 
   create_table "cliqs", force: :cascade do |t|
-    t.integer  "parent_id"
     t.string   "name",                           null: false
     t.boolean  "is_category", default: false
     t.string   "ancestry"
@@ -37,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150521201127) do
     t.boolean  "is_main"
     t.string   "color",       default: "ffffff"
     t.string   "cached_name"
+    t.integer  "parent_id"
+    t.integer  "cliq_p_id"
   end
 
   add_index "cliqs", ["ancestry"], name: "index_cliqs_on_ancestry", using: :btree
