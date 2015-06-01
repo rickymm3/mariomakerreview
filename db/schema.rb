@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522170053) do
+ActiveRecord::Schema.define(version: 20150523215838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,6 +187,7 @@ ActiveRecord::Schema.define(version: 20150522170053) do
     t.integer  "reports"
     t.boolean  "locked"
     t.integer  "impressions_count", default: 0
+    t.boolean  "sticky"
   end
 
   add_index "topics", ["slug"], name: "index_topics_on_slug", unique: true, using: :btree
