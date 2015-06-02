@@ -1,12 +1,12 @@
 -cliq ||= false
 -if cliq
   %li
-    =link_to "Go back: #{cliq.name.capitalize}", cliq
+    =link_to "Go back: #{cliq.name}", cliq
   %li.divider
   -cliq_latest = Cliq.cliq_latest(cliq)
   -if cliq_latest.count > 0
     -Cliq.cliq_latest(cliq).each do |latest|
       %li
-        =link_to latest.name.capitalize, latest
+        =link_to latest.name, latest
   -else
     %li No cliq info currently
