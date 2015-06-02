@@ -9,7 +9,7 @@ class Ability
       can :read, :all
     elsif user.admin?
       can :manage, :all
-    else
+    elsif user.username?
       can :create, Topic
       can :create, Reply
       can :create, Cliq
