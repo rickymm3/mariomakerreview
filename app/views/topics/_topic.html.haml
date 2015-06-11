@@ -1,5 +1,7 @@
 %tr.topic
   %td
+    -if topic.locked?
+      %i.fa.fa-lock
     =link_to topic.subject, topic_path(topic)
   %td
     =topic.exp

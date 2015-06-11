@@ -7,12 +7,12 @@ class CliqsController < ApplicationController
   skip_authorize_resource :only => [:show, :index]
 
   def index
-    @descendants = get_descendants(10)
-    @descendants << @cliq.id
-    @topics = get_topics("updated_at desc", 20)
+    @topics = Topic.all.where(sticky:false).order("updated_at desc").page(params[:page]).limit(20)
+    @stickies = Topic.all.where(cliq_id: @cliq.id, sticky:true).order("updated_at desc")
   end
 
   def show
+    @stickies = Topic.all.where(cliq_id: @cliq.id, sticky:true).order("updated_at desc")
     @descendants = get_descendants(10)
     @descendants << @cliq.id
     if @filter
@@ -67,7 +67,11 @@ class CliqsController < ApplicationController
   private
 
   def get_topics(order, limit)
-    Topic.where(cliq_id: @descendants).order(order).page(params[:page]).limit(limit)
+    Topic.where(cliq_id: @descendants, sticky:false).order(order).page(params[:page]).limit(limit)
+  end
+
+  def get_stickies
+    Topic.where(cliq_id: @descendants, sticky:true)
   end
 
   def get_descendants(limit)

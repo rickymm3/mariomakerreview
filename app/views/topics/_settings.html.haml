@@ -6,5 +6,8 @@
   -if can? :update, topicreply
     %li
       =link_to "Edit", edit_topic_path(@topic)
-  -if can? :update, topicreply
-    %li=link_to "Lock Topic"
+  -if topicreply.is_a?(Topic)
+    -if can? :update, topicreply
+      %li=link_to "#{topicreply.locked ? "Unlock Topic" : "Lock Topic"}", topic_path(topicreply, topic: {locked:!topicreply.locked}), method: :put
+    -if can? :update, topicreply
+      %li=link_to "#{topicreply.sticky ? "Unsticky" : "Sticky"}", topic_path(topicreply, topic: {sticky:!topicreply.sticky}), method: :put

@@ -44,7 +44,7 @@ class TopicsController < ApplicationController
 
   def update
     if @topic.update(topic_params)
-      redirect_to @topic, notice: 'Reply was successfully updated.'
+      redirect_to @topic, notice: "#{@topic.class} was successfully updated."
     else
       render :edit
     end
@@ -78,7 +78,7 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:subject, :body, :cliq_id)
+    params.require(:topic).permit(:subject, :body, :cliq_id, :sticky, :locked)
   end
 
 end

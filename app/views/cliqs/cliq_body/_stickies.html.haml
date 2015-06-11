@@ -1,0 +1,14 @@
+-@stickies.each do |sticky|
+  %tr.sticky
+    %td
+      -if sticky.locked?
+        %i.fa.fa-lock
+      %i.fa.fa-tag
+      =link_to sticky.subject, topic_path(sticky)
+    %td
+      =sticky.exp
+    %td
+      =render "shared/cliq", cliq: sticky.cliq
+    -if @admin
+      %td
+        =sticky.reports
