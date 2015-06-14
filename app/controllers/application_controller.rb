@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include CliqsHelper
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :load_index
+  before_filter :check_for_username, except: [:edit, :update]
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -15,6 +16,14 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def check_for_username
+    if current_user
+      unless current_user.username?
+        redirect_to edit_user_registration_path
+      end
+    end
+  end
 
   def load_index
     @top_cliq = Cliq.where(is_main:true).first

@@ -1,0 +1,5 @@
+<% if @active %>
+$('<%= escape_javascript "a.#{@cliq_id}-favorite".html_safe %>').find("i").attr("class", "fa fa-star");
+<% else %>
+$('<%= escape_javascript "a.#{@cliq_id}-favorite".html_safe %>').find("i").attr("class", "fa fa-star-o");
+<% end %>

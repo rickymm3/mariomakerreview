@@ -1,27 +1,5 @@
-.page-header
-%h2= @user.email
+%h2= "#{@user.username} Profile"
 %table.table.table-bordered
-  %tr
-    %td ID
-    %td= @user.id
-  %tr
-    %td Email
-    %td= @user.email
-  %tr
-    %td Sign in count
-    %td= @user.sign_in_count
-  %tr
-    %td Last sign in at
-    %td= l( @user.last_sign_in_at, :format => :long )
-  %tr
-    %td Last sign in IP
-    %td= @user.last_sign_in_ip
-  %tr
-    %td Created at
-    %td= l( @user.created_at, :format => :long )
-  %tr
-    %td Updated at
-    %td= l( @user.updated_at, :format => :long )
   %tr
     %td Latest Posts
     %td
@@ -35,10 +13,9 @@
             -elsif Reply == post.class
               %i.fa.fa-reply-all.fa-rotate-180
               =link_to post.topic.subject, topic_path(post.topic)
-              -#.well=post.body.html_safe
-
-  %tr
-    %td Actions
-    %td
-      = link_to("Edit", edit_user_registration_path, :class => "btn btn-default")
-      = link_to("Destroy", admin_user_path(@user), :data => { :confirm => 'Are you sure?' }, :method => :delete, :class => "btn btn-danger btn-xs")
+    -if try(:current_user)
+      -if current_user.slug == @user.slug
+        %tr
+          %td Actions
+          %td
+            = link_to("Change Settings", edit_user_registration_path, :class => "btn btn-default")

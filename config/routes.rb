@@ -11,6 +11,8 @@ BaseApp::Application.routes.draw do
     resources :replies
   end
 
+  resources :favorites, only: [:update]
+
   resources :topic_report do
     member do
       post :report

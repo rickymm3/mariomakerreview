@@ -5,6 +5,7 @@
     =link_to parent_id do
       %i.fa.fa-level-up
   =@cliq.name.capitalize
+  =render 'favorites/star', cliq:@cliq
 .pagination-container
   =paginate @topics
 %table.table.table-striped#topics

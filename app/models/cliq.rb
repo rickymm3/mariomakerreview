@@ -1,6 +1,7 @@
 class Cliq < ActiveRecord::Base
   has_ancestry
   has_many :topic, :foreign_key => 'cliq_id'
+
   validates_uniqueness_of :name, scope: :ancestry
 
   def self.search(search, current_cliq)

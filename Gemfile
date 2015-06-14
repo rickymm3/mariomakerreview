@@ -56,6 +56,7 @@ end
 gem 'haml-rails'
 gem 'better_errors',      group: :development
 gem "binding_of_caller"
+gem "bower-rails"
 
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch:'bootstrap3'

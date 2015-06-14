@@ -39,4 +39,12 @@ module ApplicationHelper
   #   end
   # end
 
+  def check_if_favorite(cliq)
+    if current_user.favorites.where(active:true).select(:cliq_id).exists?(cliq_id: cliq.id)
+      "<i class='fa fa-star'></i>"
+    else
+      "<i class='fa fa-star-o'></i>"
+    end
+  end
+
 end

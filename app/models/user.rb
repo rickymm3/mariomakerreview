@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
   has_merit
 
   # Include default devise modules. Others available are:
@@ -18,6 +19,9 @@ class User < ActiveRecord::Base
 
   has_many :topics
   has_many :replies
+  has_many :favorites
+
+  friendly_id :username, use: :slugged
 
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
