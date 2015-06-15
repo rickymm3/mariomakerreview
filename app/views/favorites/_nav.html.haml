@@ -1,5 +1,6 @@
-.navmenu.navmenu-default.navmenu-fixed-left.offcanvas{:style => ""}
-  %a.navmenu-brand{:href => "#"} Favorites
-  %ul.nav.navmenu-nav
-    -@favorites.each do |favorite|
-      =render "shared/cliq", cliq: favorite.cliq
+-if current_user
+  .navmenu.navmenu-default.navmenu-fixed-left.offcanvas{:style => ""}
+    %a.navmenu-brand{:href => "#"} Favorites
+    %ul.nav.navmenu-nav
+      -@favorites.each do |favorite|
+        =render "shared/cliq", cliq: favorite.cliq

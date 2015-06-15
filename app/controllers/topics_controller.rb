@@ -34,7 +34,7 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new(cliq_id: params[:cliq_id])
+    @topic = Topic.new(cliq_id: params[:cliq_id], locked: false, sticky:false)
   end
 
   def destroy

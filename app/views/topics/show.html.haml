@@ -1,7 +1,7 @@
 =render "reply_bar", topic:@topic
 .modal.fade#report-modal
-.panel
-  =render "shared/cliq_top"
+.well
+  =render "shared/cliq_top", cliq: @cliq if current_user
   -if @topic.active?
     =render "first_post"
     =render "replies"
