@@ -83,10 +83,10 @@ class CliqsController < ApplicationController
   end
 
   def set_index_cliq
-    @cliq = Cliq.find(1)
+    @cliq = Cliq.friendly.find(1)
   end
   def set_cliq
-    @cliq = Cliq.find(params[:id])
+    @cliq = Cliq.friendly.find(params[:id])
   end
 
   # def set_cliq

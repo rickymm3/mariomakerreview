@@ -3,6 +3,8 @@ class Cliq < ActiveRecord::Base
   has_many :topic, :foreign_key => 'cliq_id'
   has_many :favorites
   validates_uniqueness_of :name, scope: :ancestry
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   def self.search(search, current_cliq)
     hash = Hash.new
