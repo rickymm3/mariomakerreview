@@ -31,7 +31,7 @@ class CliqsController < ApplicationController
 
   def new
     @create = true
-    @cliq = Cliq.find(cliq_params[:parent_id])
+    @cliq = Cliq.friendly.find(cliq_params[:parent_id])
     @search = set_search
     @new_cliq = Cliq.new(cliq_params)
   end
@@ -103,7 +103,7 @@ class CliqsController < ApplicationController
   end
 
   def set_search
-    Cliq.search(params[:cliq][:name], @cliq)
+    Cliq.friendly.search(params[:cliq][:name], @cliq)
     #automatically return the correct search if it matches
     # redirect_to(@search['match']) if @search['match'].present?
   end
