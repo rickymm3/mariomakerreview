@@ -20,10 +20,14 @@
 
     = yield :head
     %body
+      = render "favorites/nav"
       .cliq_bar
         #fb-root
         = render "layouts/application/cliq_bar"
       .container
+        .navbar.navbar-default.navmenu-fixed-left.navbar-left-favorites
+          %button.white.navbar-toggle.navbar-toggle-show{"data-canvas" => "body", "data-target" => ".navmenu", "data-toggle" => "offcanvas", :type => "button"}
+            %i.fa.fa-star
         .row
           .col-lg-12.col-md-12.col-sm-12
             = bootstrap_flash
