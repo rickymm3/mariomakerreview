@@ -1,7 +1,9 @@
 =render "reply_bar", topic:@topic
 .modal.fade#report-modal
--if @topic.active?
-  =render "first_post"
-  =render "replies"
--else
-  =render "removed"
+.panel
+  =render "shared/cliq_top"
+  -if @topic.active?
+    =render "first_post"
+    =render "replies"
+  -else
+    =render "removed"

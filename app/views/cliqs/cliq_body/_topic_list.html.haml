@@ -1,11 +1,4 @@
-.topic-cliq-name
-  -unless @cliq.try(:ancestors).empty?
-    -parent_id = @cliq.ancestry.split('/').last
-  -if parent_id
-    =link_to parent_id do
-      %i.fa.fa-level-up
-  =@cliq.name.capitalize
-  =render 'favorites/star', cliq:@cliq
+=render "shared/cliq_top"
 .pagination-container
   =paginate @topics
 %table.table.table-striped#topics

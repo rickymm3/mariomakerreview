@@ -1,0 +1,8 @@
+.topic-cliq-name
+  -unless @cliq.try(:ancestors).empty?
+    -parent_id = @cliq.ancestry.split('/').last
+  -if parent_id
+    =link_to cliq_path(parent_id) do
+      %i.fa.fa-level-up
+  =@cliq.name.capitalize
+  =render 'favorites/star', cliq:@cliq
