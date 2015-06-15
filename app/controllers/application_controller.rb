@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :load_index
   before_filter :check_for_username, except: [:edit, :update]
+  before_filter :get_favorites
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -13,6 +14,12 @@ class ApplicationController < ActionController::Base
   def render404
     render :file => File.join(Rails.root, 'public', '404.html'), :status => 404, :layout => false
     return true
+  end
+
+  def get_favorites
+    if user_signed_in?
+      @favorites = Favorite.where(user_id:current_user.id,active:true)
+    end
   end
 
   protected
