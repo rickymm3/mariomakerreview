@@ -2,6 +2,7 @@ class RepliesController < ApplicationController
 
   before_action :set_topic, only: [:new, :create, :edit]
   before_action :authenticate_user!, :only => [:new, :create, :edit]
+  before_action :check_if_locked, only: [:create, :new, :update, :edit]
 
   def new
     @reply = Reply.new(topic_id: @topic.id)
@@ -44,6 +45,12 @@ class RepliesController < ApplicationController
   end
 
   private
+
+  def check_if_locked
+    if @topic.locked?
+      redirect_to @topic, notice: "#{@topic.class} is locked and can not be replied to."
+    end
+  end
 
   def calculate_exp(amount)
     #calculate this value based on times between posts

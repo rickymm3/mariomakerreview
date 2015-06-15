@@ -3,6 +3,8 @@ class TopicsController < ApplicationController
   before_action :set_cliq, only: [:new, :show, :create]
   before_action :get_replies, only: [:show]
   before_action :authenticate_user!, :only => [:new, :create, :report]
+  before_action :check_if_locked, only: [:edit, :update]
+
   load_and_authorize_resource
   skip_authorize_resource :only => :show
 
@@ -51,6 +53,13 @@ class TopicsController < ApplicationController
   end
 
   private
+
+
+  def check_if_locked
+    if @topic.locked?
+      redirect_to @topic, notice: "#{@topic.class} is locked and can not be edited."
+    end
+  end
 
   def check_if_mod(topic)
     # if current_user

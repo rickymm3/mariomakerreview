@@ -43,3 +43,9 @@ table {
   margin-top: 65px;
   background-color: transparent!important;
 }
+
+@media (max-width: 768px) {
+  .navbar-left-favorites {
+    display: none;
+  }
+}
