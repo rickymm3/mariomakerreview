@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
       if tr == 'reply'
           x = Reply.find(id)
       elsif tr == 'topic'
-          x = Topic.find(id)
+          x = Topic.friendly.find(id)
       end
     end
     unless current_user.id == x.user_id

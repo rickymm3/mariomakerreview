@@ -1,14 +1,12 @@
 BaseApp::Application.routes.draw do
 
   resources :cliqs do
-    resources :topics
+    resources :topics do
+      resources :replies
+    end
     member do
       get :admin
     end
-  end
-
-  resources :topics do
-    resources :replies
   end
 
   resources :favorites, only: [:update]

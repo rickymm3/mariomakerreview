@@ -4,7 +4,7 @@
       -if sticky.locked?
         %i.fa.fa-lock
       %i.fa.fa-tag
-      =link_to sticky.subject, topic_path(sticky)
+      =link_to sticky.subject, cliq_topic_path(@cliq,sticky)
     %td
       =sticky.exp
     %td

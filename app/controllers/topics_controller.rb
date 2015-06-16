@@ -5,11 +5,13 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, :only => [:new, :create, :report]
   before_action :check_if_locked, only: [:edit, :update]
 
+
+
   load_and_authorize_resource
   skip_authorize_resource :only => :show
 
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
     @is_mod = check_if_mod(@topic)
     if impressionist(@topic, "message...", :unique => [:session_hash])
       @topic.update_columns(exp:@topic.increment(:exp, 1).exp)
@@ -75,15 +77,15 @@ class TopicsController < ApplicationController
 
   def set_cliq
     if @topic
-      @cliq = Cliq.find(@topic.cliq_id)
+      @cliq = Cliq.friendly.find(@topic.cliq_id)
       @ancestors = @cliq.ancestors
     else
-      @cliq = Cliq.find(params[:cliq_id])
+      @cliq = Cliq.friendly.find(params[:cliq_id])
       end
   end
 
   def set_topic
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def topic_params

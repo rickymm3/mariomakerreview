@@ -5,9 +5,9 @@
     = link_to "Report", report_ajax_topic_report_path(@topic), remote:true, data: {toggle:"modal", target:"#report-modal"}
   -if can? :update, topicreply
     %li
-      =link_to "Edit", edit_topic_path(@topic)
+      =link_to "Edit", edit_cliq_topic_path(@cliq,@topic)
   -if topicreply.is_a?(Topic)
     -if can? :update, topicreply
-      %li=link_to "#{topicreply.locked ? "Unlock Topic" : "Lock Topic"}", topic_path(topicreply, topic: {locked:!topicreply.locked}), method: :put
+      %li=link_to "#{topicreply.locked ? "Unlock Topic" : "Lock Topic"}", cliq_topic_path(@cliq,topicreply, topic: {locked:!topicreply.locked}), method: :put
     -if can? :update, topicreply
-      %li=link_to "#{topicreply.sticky ? "Unsticky" : "Sticky"}", topic_path(topicreply, topic: {sticky:!topicreply.sticky}), method: :put
+      %li=link_to "#{topicreply.sticky ? "Unsticky" : "Sticky"}", cliq_topic_path(@cliq,topicreply, topic: {sticky:!topicreply.sticky}), method: :put

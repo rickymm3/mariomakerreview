@@ -2,7 +2,7 @@
   %td
     -if topic.locked?
       %i.fa.fa-lock
-    =link_to topic.subject, topic_path(topic)
+    =link_to topic.subject, cliq_topic_path(@cliq, topic)
   %td
     =topic.exp
   %td
