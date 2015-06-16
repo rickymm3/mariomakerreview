@@ -4,7 +4,14 @@ class Cliq < ActiveRecord::Base
   has_many :favorites
   validates_uniqueness_of :name, scope: :ancestry
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :slug_candidates, use: [:slugged, :finders]
+
+  def slug_candidates
+    [
+        :name,
+        [:name, :id]
+    ]
+  end
 
   def self.search(search, current_cliq)
     hash = Hash.new
