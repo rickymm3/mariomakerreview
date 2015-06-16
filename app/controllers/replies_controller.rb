@@ -9,11 +9,11 @@ class RepliesController < ApplicationController
   end
 
   def create
-    @reply = Reply.create(body: params[:reply][:body], user_id: current_user.id, topic_id: params[:topic_id])
+    @reply = Reply.create(body: params[:reply][:body], user_id: current_user.id, topic_id: Topic.find_by_slug(params[:topic_id]).id)
     respond_to do |format|
       if @reply.save
         @topic.touch
-        format.html { redirect_to @topic, notice: 'Item was successfully created.' }
+        format.html { redirect_to [@topic.cliq, @topic], notice: 'Item was successfully created.' }
         format.json { render action: 'show', status: :created, location: @topic }
       else
         format.html { render action: 'new' }
@@ -24,7 +24,7 @@ class RepliesController < ApplicationController
   end
 
   def set_topic
-    @topic = Topic.find(params[:topic_id])
+    @topic = Topic.friendly.find(params[:topic_id])
   end
 
   def edit
@@ -54,7 +54,7 @@ class RepliesController < ApplicationController
 
   def calculate_exp(amount)
     #calculate this value based on times between posts
-    Topic.find(params[:topic_id]).increment(:exp, amount).save
+    Topic.friendly.find(params[:topic_id]).increment(:exp, amount).save
   end
 
   def reply_params

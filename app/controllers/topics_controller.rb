@@ -18,7 +18,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
-    @topic.cliq_id = params['cliq_id']
+    @topic.cliq_id = Cliq.friendly.find(params[:cliq_id]).id
     @topic.user_id = current_user.id
     @cliq.touch
     respond_to do |format|
@@ -34,7 +34,7 @@ class TopicsController < ApplicationController
   end
 
   def new
-    @topic = Topic.new(cliq_id: params[:cliq_id])
+    @topic = Topic.new(cliq_id: Cliq.friendly.find(params[:cliq_id]).id)
   end
 
   def destroy
@@ -46,7 +46,7 @@ class TopicsController < ApplicationController
 
   def update
     if @topic.update(topic_params)
-      redirect_to @topic, notice: "#{@topic.class} was successfully updated."
+      redirect_to [@topic.cliq, @topic], notice: "#{@topic.class} was successfully updated."
     else
       render :edit
     end

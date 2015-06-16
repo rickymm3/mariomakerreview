@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @cliq = Cliq.find(1)
     @user = User.friendly.find(params[:id])
     @topics = Topic.where(user_id:@user.id).order('created_at DESC').limit(10)
     @replies = Reply.where(user_id:@user.id).order('created_at DESC').limit(10)

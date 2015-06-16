@@ -9,10 +9,10 @@
           %li
             -if Topic == post.class
               %i.fa.fa-user
-              =link_to post.subject, topic_path(post)
+              =link_to post.subject, cliq_topic_path(post.cliq, post)
             -elsif Reply == post.class
               %i.fa.fa-reply-all.fa-rotate-180
-              =link_to post.topic.subject, topic_path(post.topic)
+              =link_to post.topic.subject, cliq_topic_path(post.topic.cliq, post.topic)
     -if try(:current_user)
       -if current_user.slug == @user.slug
         %tr

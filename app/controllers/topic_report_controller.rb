@@ -9,12 +9,12 @@ class TopicReportController < ApplicationController
 
   def report
     TopicReport.create(topic_report_params)
-    Topic.find(params[:id]).increment(:reports, 1).save
+    Topic.friendly.find(params[:id]).increment(:reports, 1).save
   end
 
   def report_ajax
-    @topic = Topic.find(params[:id])
-    @topic_report = TopicReport.new(topic_id: params[:id])
+    @topic = Topic.friendly.find(params[:id])
+    @topic_report = TopicReport.new(topic_id: @topic.id)
   end
 
   private

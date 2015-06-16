@@ -59,6 +59,8 @@ class CliqsController < ApplicationController
 
   def admin
     @admin = true
+    @stickies = Topic.all.where(cliq_id: @cliq.id, sticky:true).order("updated_at desc")
+
     @descendants = get_descendants(10)
     @descendants << @cliq.id
     @topics = Topic.where(cliq_id: @descendants).where("reports > ?", 0).order("updated_at desc").page(params[:page]).limit(20)
