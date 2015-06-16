@@ -1,7 +1,8 @@
 -if user_signed_in? && !@cliq.ancestors.empty?
-  =link_to check_if_favorite(cliq).html_safe, favorite_path(favorite: {cliq_id:cliq.id}),
+  =link_to check_if_favorite(cliq).html_safe, favorite_path(@cliq, favorite: {cliq_id:cliq.id}),
     method: :put,
     class:"#{@cliq.id}-favorite",
+    remote: :true,
     data: {  }
 
 

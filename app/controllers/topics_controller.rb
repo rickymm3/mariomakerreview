@@ -5,8 +5,6 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, :only => [:new, :create, :report]
   before_action :check_if_locked, only: [:edit, :update]
 
-
-
   load_and_authorize_resource
   skip_authorize_resource :only => :show
 

@@ -1,7 +1,7 @@
 BaseApp::Application.routes.draw do
 
-  resources :cliqs do
-    resources :topics do
+  resources :cliqs, path: "c" do
+    resources :topics, path: "t", :except => [:index] do
       resources :replies
     end
     member do
