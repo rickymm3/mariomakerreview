@@ -87,7 +87,7 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:subject, :body, :cliq_id, :sticky, :locked)
+    params.require(:topic).permit(:subject, :body, :cliq_id, :sticky, :locked, :opened)
   end
 
 end

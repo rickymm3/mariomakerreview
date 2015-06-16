@@ -1,10 +1,14 @@
 -@stickies.each do |sticky|
   %tr.sticky
     %td
-      -if sticky.locked?
-        %i.fa.fa-lock
-      %i.fa.fa-tag
-      =link_to sticky.subject, cliq_topic_path(@cliq,sticky)
+      %div
+        -if sticky.locked?
+          %i.fa.fa-lock
+        %i.fa.fa-thumb-tack
+        =link_to sticky.subject, cliq_topic_path(@cliq,sticky)
+      -if sticky.opened?
+        %div
+          =sticky.body.html_safe
     %td
       =sticky.exp
     %td

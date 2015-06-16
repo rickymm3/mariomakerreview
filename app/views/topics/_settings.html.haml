@@ -11,3 +11,5 @@
       %li=link_to "#{topicreply.locked ? "Unlock Topic" : "Lock Topic"}", cliq_topic_path(@cliq,topicreply, topic: {locked:!topicreply.locked}), method: :put
     -if can? :update, topicreply
       %li=link_to "#{topicreply.sticky ? "Unsticky" : "Sticky"}", cliq_topic_path(@cliq,topicreply, topic: {sticky:!topicreply.sticky}), method: :put
+    -if can? :update, topicreply
+      %li=link_to "#{topicreply.opened ? "Close" : "Open"}", cliq_topic_path(@cliq,topicreply, topic: {opened:!topicreply.opened}), method: :put

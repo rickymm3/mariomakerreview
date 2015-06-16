@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616000824) do
+ActiveRecord::Schema.define(version: 20150616200600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20150616000824) do
     t.integer  "impressions_count", default: 0
     t.boolean  "sticky",            default: false
     t.string   "slug"
+    t.boolean  "opened",            default: false
   end
 
   add_index "topics", ["slug"], name: "index_topics_on_slug", unique: true, using: :btree
