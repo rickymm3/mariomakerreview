@@ -1,4 +1,5 @@
 %nav.navbar.navbar-default{role:'navigation'}
+  =render "layouts/application/cliq_bar/categories"
   .container
     .container-fluid
       .navbar-header
@@ -10,4 +11,3 @@
           =render "layouts/application/cliq_bar/cliq_search" if @cliq.present?
         %ul.nav.navbar-nav.navbar-right
           =render "layouts/application/cliq_bar/account"
-=render "layouts/application/cliq_bar/categories"

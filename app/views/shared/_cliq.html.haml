@@ -1,7 +1,4 @@
--if cliq.ancestors.count < 2
-  -bgcolor = cliq.color
--else
-  -bgcolor = cliq.ancestors[1].color
+-bgcolor = get_background_color(cliq)
 .cliq
   =link_to cliq_path(cliq) do
     .cliq-color{style: "background-color: ##{bgcolor}"}

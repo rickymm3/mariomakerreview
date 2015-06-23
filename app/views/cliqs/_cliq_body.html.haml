@@ -1,5 +1,5 @@
 =render "cliqs/cliq_body/search_results", search: @search ||= {}
 -unless @search.has_key?('temp')
   =render "cliqs/cliq_body/info_bar"
-  .panel
+  .panel.topic-list
     =render "cliqs/cliq_body/topic_list", topics: @topics

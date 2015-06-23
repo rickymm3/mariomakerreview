@@ -1,5 +1,5 @@
 -full_ancestry(@cliq).each do |desc|
-  -unless desc == @top_cliq
+  -unless desc.is_main? || desc.is_category?
     %li.dropdown
       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
         =desc.name

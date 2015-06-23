@@ -1,12 +1,19 @@
-.container
-  .panel
-    .category-list
-      %ul.list-inline.align-top
-        -#%li.label-custom1 Categories:
-        -cliq_latest = @categories
-        -if cliq_latest.count > 0
-          -@categories.each do |latest|
-            %li
-              =render "shared/cliq", cliq: latest
-        -else
-          %li No cliq info currently
+.category-list
+  .container
+    %ul.list-inline.align-top.pull-left
+      -#%li.label-custom1 Categories:
+      -cliq_latest = @categories
+      -if cliq_latest.count > 0
+        -@categories.each do |latest|
+          %li{class: ("active" if category_is_active?(latest)),
+          style: ("border-top:2px solid ##{get_background_color(latest)}" if category_is_active?(latest))}
+            =render "shared/cliq", cliq: latest
+      -else
+        %li No cliq info currently
+    %ul.list-inline.align-top.pull-right
+      %li
+        %i.fa.fa-user
+      %li
+        %i.fa.fa-beer
+      %li
+        %i.fa.fa-fighter-jet

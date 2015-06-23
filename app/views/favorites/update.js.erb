@@ -3,3 +3,4 @@ $('<%= escape_javascript "a.#{@cliq_id}-favorite".html_safe %>').find("i").attr(
 <% else %>
 $('<%= escape_javascript "a.#{@cliq_id}-favorite".html_safe %>').find("i").attr("class", "fa fa-star-o");
 <% end %>
+$('#favorite-list').html('<%= escape_javascript render(:partial => "favorites/favorite_list") %>')

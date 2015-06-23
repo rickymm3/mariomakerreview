@@ -1,0 +1,3 @@
+%ul.nav.navmenu-nav
+  -@favorites.each do |favorite|
+    =render "shared/cliq", cliq: favorite.cliq

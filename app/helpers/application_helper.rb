@@ -29,7 +29,11 @@ module ApplicationHelper
   end
 
   def get_parent_id(cliq)
-    cliq.ancestry.split("/").last.to_i
+    cliq.ancestry.split("/").last.to_i unless !@cliq || !@cliq.ancestry?
+  end
+
+  def get_category_id(cliq)
+    cliq.ancestry.split("/").second.to_i unless !@cliq || !@cliq.ancestry?
   end
 
   # def nav_link(text, path)
@@ -45,6 +49,26 @@ module ApplicationHelper
     else
       "<i class='fa fa-star-o'></i>"
     end
+  end
+
+  def controller?(*controller)
+    controller.include?(params[:controller])
+  end
+
+  def action?(*action)
+    action.include?(params[:action])
+  end
+
+  def get_background_color(cliq)
+    if cliq.ancestors.count < 2
+      cliq.color
+    else
+      cliq.ancestors[1].color
+    end
+  end
+
+  def category_is_active?(cliq)
+    cliq.id == get_category_id(@cliq) || cliq.id == @cliq.id
   end
 
 end
