@@ -57,7 +57,7 @@ class TopicsController < ApplicationController
 
   def check_if_locked
     if @topic.locked?
-      redirect_to @topic, notice: "#{@topic.class} is locked and can not be edited."
+      redirect_to [@topic.cliq, @topic], notice: "#{@topic.class} is locked and can not be edited." unless topic_params.has_key?(:locked)
     end
   end
 

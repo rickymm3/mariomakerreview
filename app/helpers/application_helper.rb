@@ -13,10 +13,14 @@ module ApplicationHelper
 
   def facebook_image(uid)
     if uid
-      "http://graph.facebook.com/#{uid}/picture"
+      image_tag("http://graph.facebook.com/#{uid}/picture")
     else
-      ""
+      render "shared/no_avatar"
     end
+  end
+
+  def font_awesome(icon)
+    "<i class='fa fa-#{icon}'></i>".html_safe
   end
 
   def report_reasons

@@ -1,0 +1,32 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.post {
+  border-top: 1px solid #e7e7e7;
+  position:relative;
+
+  padding: 20px 20px 0px 20px;
+  li {
+    list-style: none;
+  }
+  .post-user {
+    min-width: 60px;
+    min-height: 120px;
+    float: left;
+  }
+  .post-details {
+    min-height: 120px;
+    max-width: 700px;
+    .post-header {
+      font-size: 11px;
+    }
+    .post-footer {
+
+    }
+    .post-body {
+      padding-top: 10px;
+    }
+  }
+}

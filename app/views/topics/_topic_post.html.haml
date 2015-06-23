@@ -1,0 +1,14 @@
+.post.clearfix
+  .post-user.clearfix
+    %li= facebook_image(post.user.uid)
+  .post-details.dropdown.clearfix
+    .post-header
+      -if post.user
+        ="#{post.user.username}"
+      -else
+        ="User has been deleted"
+    .post-body.clearfix
+      =post.body.html_safe
+    .post-footer.pull-right
+      =render "settings", topicreply:post  if current_user
+

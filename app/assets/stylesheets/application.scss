@@ -8,6 +8,7 @@
  *= require jquery.minicolors
  *= require pagination
  *= require jasny-bootstrap
+ *= require topics
 
 */
 
@@ -100,4 +101,14 @@ ul {
 
 .white {
   background-color: white!important;
+}
+
+.no-avatar {
+  font-size: 34px;
+}
+
+.admin-color {
+  a {
+    color: #ad0b00 !important;
+  }
 }

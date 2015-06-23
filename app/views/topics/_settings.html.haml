@@ -1,15 +1,22 @@
-%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-  %i.fa.fa-cog
-%ul.dropdown-menu{role:'menu'}
+%ul.list-inline
   %li
-    = link_to "Report", report_ajax_topic_report_path(@topic), remote:true, data: {toggle:"modal", target:"#report-modal"}
+    =link_to report_ajax_topic_report_path(@topic), remote:true, data: {toggle:"modal", target:"#report-modal"}, title: "Report" do
+      -font_awesome('warning')
   -if can? :update, topicreply
     %li
-      =link_to "Edit", edit_cliq_topic_path(@cliq,@topic)
+      =link_to edit_cliq_topic_path(@cliq,@topic) do
+        -font_awesome('pencil')
   -if topicreply.is_a?(Topic)
     -if can? :update, topicreply
-      %li=link_to "#{topicreply.locked ? "Unlock Topic" : "Lock Topic"}", cliq_topic_path(@cliq,topicreply, topic: {locked:!topicreply.locked}), method: :put
+      %li.admin-color
+        =link_to cliq_topic_path(@cliq,topicreply, topic: {locked:!topicreply.locked}), method: :put, title: "un/lock" do
+          -topicreply.locked ? font_awesome('lock') : font_awesome('unlock')
     -if can? :update, topicreply
-      %li=link_to "#{topicreply.sticky ? "Unsticky" : "Sticky"}", cliq_topic_path(@cliq,topicreply, topic: {sticky:!topicreply.sticky}), method: :put
+      %li.admin-color
+        =link_to cliq_topic_path(@cliq,topicreply, topic: {sticky:!topicreply.sticky}), method: :put, title: "un/sticky" do
+          -topicreply.sticky ? font_awesome('tag') : font_awesome('thumb-tack')
     -if can? :update, topicreply
-      %li=link_to "#{topicreply.opened ? "Close" : "Open"}", cliq_topic_path(@cliq,topicreply, topic: {opened:!topicreply.opened}), method: :put
+      %li.admin-color
+        =link_to cliq_topic_path(@cliq,topicreply, topic: {opened:!topicreply.opened}), method: :put, title: "expand/collapse" do
+          -topicreply.opened ? font_awesome('minus-square') : font_awesome('minus-square-o')
+  =link_to "Reply", new_cliq_topic_reply_path(@cliq,@topic)

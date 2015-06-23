@@ -1,11 +1,1 @@
-%h2
-  =@topic.subject
-.well
-  .dropdown.pull-right
-    -if @topic.user
-      ="by: #{@topic.user.username}"
-    -else
-      ="by: User has been deleted"
-    =render "settings", topicreply:@topic if current_user
-  %br
-  =@topic.body.html_safe
+=render "topic_post", post: @topic
