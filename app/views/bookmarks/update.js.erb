@@ -1,0 +1,5 @@
+<% if @done %>
+$('<%= escape_javascript "a.#{@topic_id}-t-favorite".html_safe %>').find("i").addClass("icon-active");
+<% else %>
+$('<%= escape_javascript "a.#{@topic_id}-t-favorite".html_safe %>').find("i").removeClass("icon-active");
+<% end %>

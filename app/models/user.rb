@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :topics
   has_many :replies
   has_many :favorites
+  has_many :bookmarks
 
   friendly_id :username, use: :slugged
 

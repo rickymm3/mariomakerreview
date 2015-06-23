@@ -29,6 +29,7 @@ BaseApp::Application.routes.draw do
     resources :reports
   end
   resources :users, only: [:show]
+  resources :bookmarks, only: [:update]
 
   get "pages/not_authorized"
 

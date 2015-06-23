@@ -13,6 +13,13 @@
             -elsif Reply == post.class
               %i.fa.fa-reply-all.fa-rotate-180
               =link_to post.topic.subject, cliq_topic_path(post.topic.cliq, post.topic)
+  %tr
+    %td Bookmarked Threads
+    %td
+      -Bookmark.where(user_id: current_user.id, done: false).each do |bookmark|
+        %ul
+          %li
+            =link_to bookmark.topic.subject, cliq_topic_path(bookmark.topic.cliq, bookmark.topic)
     -if try(:current_user)
       -if current_user.slug == @user.slug
         %tr

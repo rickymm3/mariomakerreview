@@ -55,6 +55,14 @@ module ApplicationHelper
     end
   end
 
+  def check_if_bookmarked(topic)
+    if current_user.bookmarks.where(done:false).select(:topic_id).exists?(topic_id: topic.id)
+      "<i class='fa fa-bookmark icon-active'></i>"
+    else
+      "<i class='fa fa-bookmark'></i>"
+    end
+  end
+
   def controller?(*controller)
     controller.include?(params[:controller])
   end

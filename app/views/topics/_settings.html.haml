@@ -1,5 +1,10 @@
 %ul.list-inline
   %li
+    =link_to check_if_bookmarked(@topic).html_safe, bookmark_path(@topic, bookmark: {topic_id:@topic.id}),
+      method: :put,
+      remote: true,
+      class:"#{@topic.id}-t-favorite"
+  %li
     =link_to report_ajax_topic_report_path(@topic), remote:true, data: {toggle:"modal", target:"#report-modal"}, title: "Report" do
       -font_awesome('warning')
   -if can? :update, topicreply
