@@ -28,6 +28,7 @@ gem 'figaro'
 gem 'impressionist'
 gem 'merit'
 gem 'sass-rails'
+gem 'whenever', :require => false
 
 group :test, :development do
   gem "rspec-rails"

@@ -1,10 +1,10 @@
 %tr.topic
   %td
+    =get_interest(topic.exp)
     -if topic.locked?
       %i.fa.fa-lock
-    =link_to topic.subject, cliq_topic_path(topic.cliq, topic)
   %td
-    =topic.exp
+    =link_to topic.subject, cliq_topic_path(topic.cliq, topic)
   %td
     =render "shared/cliq", cliq: topic.cliq
   -if @admin

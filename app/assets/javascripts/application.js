@@ -4,13 +4,11 @@
 // // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // // the compiled file.
 // //
-//= require jquery
 //= require jquery.minicolors
 //= require jquery.minicolors.simple_form
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require ckeditor-jquery
-//= require jquery.infinitescroll
 //= require_tree ./ckeditor
 //= require cliqs
 //= require jasny-bootstrap

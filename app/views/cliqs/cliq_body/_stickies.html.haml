@@ -1,16 +1,16 @@
 -@stickies.each do |sticky|
   %tr.sticky
     %td
+      =get_interest(sticky.exp)
+      -if sticky.locked?
+        %i.fa.fa-lock
+      %i.fa.fa-thumb-tack
+    %td
       %div
-        -if sticky.locked?
-          %i.fa.fa-lock
-        %i.fa.fa-thumb-tack
         =link_to sticky.subject, cliq_topic_path(@cliq,sticky)
       -if sticky.opened?
         %div
           =sticky.body.html_safe
-    %td
-      =sticky.exp
     %td
       =render "shared/cliq", cliq: sticky.cliq
     -if @admin

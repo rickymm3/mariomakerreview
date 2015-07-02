@@ -83,4 +83,16 @@ module ApplicationHelper
     cliq.id == get_category_id(@cliq) || cliq.id == @cliq.id
   end
 
+  def get_interest(exp)
+    if exp < 10
+      "<i class='fa fa-fire new'></i>".html_safe
+    elsif exp < 25
+      "<i class='fa fa-fire warm'></i>".html_safe
+    elsif exp < 100
+      "<i class='fa fa-fire hot'></i>".html_safe
+    elsif exp < 500
+      "<i class='fa fa-fire hottest'></i>".html_safe
+    end
+  end
+
 end
