@@ -1,12 +1,14 @@
 .recent-container-inner{
   top: 1px;
-  border-left: 1px solid #e7e7e7;
   margin: 0px 20px;
 }
 .recent-container-outer{
   position:relative;
   margin: 0 auto;
+}
 
+.owl-item:first-of-type {
+  border-left: 1px solid #e7e7e7;
 }
 
 .item{
