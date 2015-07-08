@@ -33,10 +33,12 @@ class ApplicationController < ActionController::Base
   end
 
   def load_index
-    session[:cliq_ids] ||= []
     @top_cliq = Cliq.where(is_main:true).first
     @cliq = @top_cliq
     @categories = Cliq.where(is_category: true)
+    unless session[:cliq_ids]
+      session[:cliq_ids] ||= Set.new
+    end
   end
 
   def configure_permitted_parameters
