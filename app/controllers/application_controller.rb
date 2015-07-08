@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_index
-    session[:cliq_ids] ||= Set.new
+    session[:cliq_ids] ||= []
     @top_cliq = Cliq.where(is_main:true).first
     @cliq = @top_cliq
     @categories = Cliq.where(is_category: true)
