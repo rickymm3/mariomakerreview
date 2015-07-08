@@ -5,7 +5,5 @@
     .container
       %ul.list-inline.align-top.pull-left.history-ul
         =render "cliqs/cliq_body/cliq_history" if @cliq.present?
-      .history-text.noselect
-        CliQ! HISTORY
   .panel.topic-list
     =render "cliqs/cliq_body/topic_list", topics: @topics

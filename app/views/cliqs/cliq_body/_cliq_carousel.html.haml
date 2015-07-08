@@ -6,7 +6,7 @@
     .owl-carousel
       -session[:cliq_ids].each do |cliq_id|
         -cliq = Cliq.find(cliq_id)
-        .item{style:"display:inline-block; width: auto;"}
+        .item
           =render "shared/cliq_tab", cliq: cliq
           .item-border{class: "#{category_is_active?(cliq) ? 'recent-active' : 'recent-inactive'}"}
       .item
@@ -17,7 +17,6 @@
 :javascript
   $('.owl-carousel').owlCarousel({
     autoWidth: true,
-    items: 5
   });
   var owl = $('.owl-carousel');
   $('.customNextBtn').click(function() {
@@ -26,3 +25,15 @@
   $('.customPrevBtn').click(function() {
     owl.trigger('prev.owl.carousel', [300]);
   })
+
+  var owl = $('.owl-carousel');
+  owl.on('initialized.owl.carousel', function() {
+    var owlCarousel = owl.data('owlCarousel');
+    var $stage = owl.find('.owl-stage');
+    var fullWidth = 0;
+    $stage.find('.owl-item').each(function(i, e) {
+      fullWidth += $(e).width() + owlCarousel.options.margin * 2;
+    });
+    $stage.width(fullWidth);
+
+  });
