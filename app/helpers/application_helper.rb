@@ -100,7 +100,7 @@ module ApplicationHelper
   end
 
   def add_cliq_to_session(cliq)
-    (session[:cliq_ids] ||= []).add (cliq.id) if !get_categories.exists? (cliq)
+    (session[:cliq_ids] ||= []).add (cliq.id) unless get_categories.exists? (cliq)
   end
 
 end
