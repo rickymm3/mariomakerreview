@@ -70,6 +70,7 @@ ul {
 
 .filter-list {
     background-color:#f8f8f8;
+    font-size: 12px;
   .new-thread{
     padding-right: 6px;
     padding-top: 4px;
@@ -141,4 +142,8 @@ ul {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.cliq-bar {
+  padding-bottom: 25px;
 }

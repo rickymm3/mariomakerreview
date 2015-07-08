@@ -1,8 +1,9 @@
 -full_ancestry(@cliq).each do |desc|
   -unless desc.is_main? || desc.is_category?
     %li.dropdown
-      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-        =desc.name
-        %span.caret
-      %ul.dropdown-menu{role:'menu'}
-        =render "shared/cliq_info", cliq:desc
+      .cliq
+        %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          =desc.name
+          %span.caret
+        %ul.dropdown-menu{role:'menu'}
+          =render "shared/cliq_info", cliq:desc

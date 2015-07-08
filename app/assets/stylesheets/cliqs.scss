@@ -53,6 +53,35 @@
   }
 }
 
+.history-list {
+  margin: 0px!important;
+  padding: 0px!important;
+  background-color: #fff!important;
+  width: 100%;
+  border-left: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+
+  .active {
+    a {
+      font-weight: bold;
+      color: #538d8b!important;
+    }
+    background-color: #fff!important;
+  }
+  .cliq {
+    a{
+      color: #428bca;
+      font-size: 14px!important;
+      padding-left: 3px!important;
+    }
+  }
+  ul {
+    padding: 0px!important;
+    margin-bottom: 0px!important;
+  }
+}
+
 .cliq {
   a{
     color: #4b4b4b;
