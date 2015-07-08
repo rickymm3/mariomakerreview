@@ -8,4 +8,10 @@ class FavoritesController < ApplicationController
     @cliq_id = @cliq.id
   end
 
+  def do_reset_session
+    session.delete(:cliq_ids)
+    reset_session
+    redirect_to root_path
+  end
+
 end

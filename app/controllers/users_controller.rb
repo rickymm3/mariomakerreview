@@ -6,4 +6,9 @@ class UsersController < ApplicationController
     @replies = Reply.where(user_id:@user.id).order('created_at DESC').limit(10)
     @facebook_info = env["omniauth.auth"]
   end
+
+  def do_reset_session
+    reset_session
+  end
+
 end

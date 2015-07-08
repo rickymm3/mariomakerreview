@@ -9,6 +9,8 @@
         .item
           =render "shared/cliq_tab", cliq: cliq
           .item-border{class: "#{category_is_active?(cliq) ? 'recent-active' : 'recent-inactive'}"}
+      .item
+        =link_to 'clear', do_reset_session_favorites_path
   .recent-next.customNextBtn.pull-right
     %i.fa.fa-arrow-right
 

@@ -9,7 +9,11 @@ BaseApp::Application.routes.draw do
     end
   end
 
-  resources :favorites, only: [:update]
+  resources :favorites, only: [:update] do
+    collection do
+      get :do_reset_session
+    end
+  end
 
   resources :topic_report do
     member do

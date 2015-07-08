@@ -84,7 +84,7 @@ module ApplicationHelper
   end
 
   def get_categories
-    Cliq.where(:is_category => true)
+    Cliq.where('is_main= ? OR is_category= ?', 'true', 'true')
   end
 
   def get_interest(exp)
