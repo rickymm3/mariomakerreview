@@ -33,7 +33,6 @@ class ApplicationController < ActionController::Base
   end
 
   def load_index
-    reset_session
     @top_cliq = Cliq.where(is_main:true).first
     @cliq = @top_cliq
     @categories = Cliq.where(is_category: true)
