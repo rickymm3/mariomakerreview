@@ -12,7 +12,6 @@ class CliqsController < ApplicationController
   end
 
   def show
-    add_cliq_to_session(@cliq)
     @stickies = Topic.all.where(cliq_id: @cliq.id, sticky:true).order("updated_at desc")
     @descendants = get_descendants(10)
     @descendants << @cliq.id
