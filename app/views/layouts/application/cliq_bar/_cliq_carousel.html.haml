@@ -1,12 +1,14 @@
 .recent-container-outer.noselect
+  .recent-bottom-border
   .recent-previous.customPrevBtn.pull-left
     %i.fa.fa-arrow-left
   .recent-container-inner
     .owl-carousel
       -session[:cliq_ids].each do |cliq_id|
         -cliq = Cliq.find(cliq_id)
-        .item{class: "#{category_is_active?(cliq) ? 'recent-active' : 'recent-inactive'}"}
+        .item
           =render "shared/cliq_tab", cliq: cliq
+          .item-border{class: "#{category_is_active?(cliq) ? 'recent-active' : 'recent-inactive'}"}
   .recent-next.customNextBtn.pull-right
     %i.fa.fa-arrow-right
 
