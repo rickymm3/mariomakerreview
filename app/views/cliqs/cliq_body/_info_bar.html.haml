@@ -1,6 +1,7 @@
 .clearfix
-  %nav.navbar.filter-list
-    %ul.nav.navbar-nav
-      =render "cliqs/cliq_body/filter_list"
-    %ul.nav.navbar-right
+  .info-bar.pull-right
+    .new-thread
       =render "cliqs/cliq_body/new_thread"
+    .filter-list
+      %ul.list-inline
+        =render "cliqs/cliq_body/filter_list"

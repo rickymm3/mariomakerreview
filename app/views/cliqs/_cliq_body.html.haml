@@ -1,9 +1,11 @@
 =render "cliqs/cliq_body/search_results", search: @search ||= {}
 -unless @search.has_key?('temp')
-  =render "layouts/application/cliq_bar/cliq_carousel"
+  =render "cliqs/cliq_body/cliq_carousel"
   .history-list
     .container
-      %ul.list-inline.align-top.pull-left
-        =render "layouts/application/cliq_bar/cliq_history" if @cliq.present?
+      %ul.list-inline.align-top.pull-left.history-ul
+        =render "cliqs/cliq_body/cliq_history" if @cliq.present?
+      .history-text.noselect
+        CliQ! HISTORY
   .panel.topic-list
     =render "cliqs/cliq_body/topic_list", topics: @topics

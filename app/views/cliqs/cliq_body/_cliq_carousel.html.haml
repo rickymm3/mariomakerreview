@@ -6,7 +6,7 @@
     .owl-carousel
       -session[:cliq_ids].each do |cliq_id|
         -cliq = Cliq.find(cliq_id)
-        .item
+        .item{style:"display:inline-block; width: auto;"}
           =render "shared/cliq_tab", cliq: cliq
           .item-border{class: "#{category_is_active?(cliq) ? 'recent-active' : 'recent-inactive'}"}
       .item
@@ -17,7 +17,6 @@
 :javascript
   $('.owl-carousel').owlCarousel({
     autoWidth: true,
-    margin: 1,
     items: 5
   });
   var owl = $('.owl-carousel');
