@@ -83,6 +83,10 @@ module ApplicationHelper
     cliq.id == get_category_id(@cliq) || cliq.id == @cliq.id
   end
 
+  def get_categories
+    Cliq.where(:is_category => true)
+  end
+
   def get_interest(exp)
     if exp < 10
       "<i class='fa fa-fire new'></i>".html_safe
@@ -93,6 +97,10 @@ module ApplicationHelper
     elsif exp < 500
       "<i class='fa fa-fire hottest'></i>".html_safe
     end
+  end
+
+  def add_cliq_to_session(cliq)
+    (session[:cliq_ids] ||= []).add (cliq.id) if !get_categories.exists? (cliq)
   end
 
 end

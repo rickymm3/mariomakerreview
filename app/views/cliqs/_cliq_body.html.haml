@@ -1,5 +1,6 @@
 =render "cliqs/cliq_body/search_results", search: @search ||= {}
 -unless @search.has_key?('temp')
   =render "cliqs/cliq_body/info_bar"
+  =render "layouts/application/cliq_bar/cliq_carousel"
   .panel.topic-list
     =render "cliqs/cliq_body/topic_list", topics: @topics

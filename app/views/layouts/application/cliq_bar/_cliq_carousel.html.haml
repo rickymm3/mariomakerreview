@@ -1,0 +1,24 @@
+.recent-container-outer.noselect
+  .recent-previous.customPrevBtn.pull-left
+    %i.fa.fa-arrow-left
+  .recent-container-inner
+    .owl-carousel
+      -session[:cliq_ids].each do |cliq_id|
+        -cliq = Cliq.find(cliq_id)
+        .item{class: "#{category_is_active?(cliq) ? 'recent-active' : 'recent-inactive'}"}
+          =render "shared/cliq_tab", cliq: cliq
+  .recent-next.customNextBtn.pull-right
+    %i.fa.fa-arrow-right
+
+:javascript
+  $('.owl-carousel').owlCarousel({
+    autoWidth:true,
+    items:1
+  });
+  var owl = $('.owl-carousel');
+  $('.customNextBtn').click(function() {
+    owl.trigger('next.owl.carousel');
+  })
+  $('.customPrevBtn').click(function() {
+    owl.trigger('prev.owl.carousel', [300]);
+  })

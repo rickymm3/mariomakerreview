@@ -35,7 +35,7 @@ badge_id = 0
 },{
   id: (badge_id = badge_id+1),
   name: "Topic Lover",
-  description: "You posted 5 times in a single topic!"
+  description: "You posted 5 times in a single Cliq!"
 }].each do |attrs|
   Merit::Badge.create! attrs
 end

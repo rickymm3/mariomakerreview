@@ -1,0 +1,56 @@
+.recent-container-inner{
+  border-left: 1px solid #e7e7e7;
+  margin: 0px 20px;
+}
+.recent-container-outer{
+  position:relative;
+  margin: 0 auto;
+}
+
+.item{
+  padding: 5px 10px;
+}
+
+.recent-active {
+  background-color: white;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7;
+}
+
+.recent-inactive {
+  border-top: 1px solid #e7e7e7;
+  border-right: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+
+}
+
+
+.customNextBtn {
+  padding-top: 7px;
+  cursor: pointer;
+  text-align: center;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-width: 20px;
+  &:hover {
+    background-color:#d3d3d3;
+  }
+}
+
+.customPrevBtn {
+  padding-top: 7px;
+  cursor: pointer;
+  text-align: center;
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  min-width: 20px;
+  bottom: 0;
+  left: 0;
+  &:hover {
+    background-color:#d3d3d3;
+  }
+}

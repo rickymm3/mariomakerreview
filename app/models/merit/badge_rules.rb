@@ -24,22 +24,22 @@ module Merit
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
       # Find badge by badge_id, badge_id takes presidence over badge
-      grant_on 'users/registrations#create', badge_id: 1, badge: 'just-registered', to: :itself
+      grant_on 'users/registrations#create', badge_id: 1, badge: 'just-registered', to: :user
 
       # If it has 10 comments, grant commenter-10 badge
       # grant_on 'comments#create', badge: 'commenter', level: 10 do |comment|
-      #   comment.user.comments.count == 10
+      #   comment.user.comm?ents.count == 10
       # end
 
-      grant_on 'topics#create', badge_id: 2 do |topic|
+      grant_on 'topics#create', badge_id: 2, to: :user do |topic|
         topic.user.topics.count == 1
       end
 
-      grant_on 'topics#create', badge_id: 3 do |topic|
+      grant_on 'topics#create', badge_id: 3, to: :user do |topic|
         topic.user.topics.count == 10
       end
 
-      grant_on 'topics#create', badge_id: 4 do |topic|
+      grant_on 'topics#create', badge_id: 4, to: :user do |topic|
         hash = Hash.new
         topic.user.topics.each do |topic|
           if hash.has_key?(topic.cliq.id)
@@ -48,9 +48,7 @@ module Merit
             hash[topic.cliq.id] = 1
           end
         end
-        hash.all? do |key,value|
-          value >= 5
-        end
+        hash.select{|k,v| v > 5}.present?
       end
 
 

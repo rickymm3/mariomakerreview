@@ -9,6 +9,10 @@
 body {
     background-color: #f8f8f8;
 }
+
+.container {
+  position: relative;
+}
 .panel {
   border-radius: 0px!important;
 }
@@ -56,4 +60,8 @@ table {
   .navbar-left-favorites {
     display: none;
   }
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: 0px!important;
 }

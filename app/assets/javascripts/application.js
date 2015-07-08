@@ -13,6 +13,8 @@
 //= require_tree ./ckeditor
 //= require cliqs
 //= require jasny-bootstrap
+//= require owl-carousel
+
 // //= require_tree .
 
 $( document ).ready(function() {
