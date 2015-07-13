@@ -10,6 +10,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.friendly.find(params[:id])
+    add_cliq_to_session(@topic.cliq)
     @is_mod = check_if_mod(@topic)
     if impressionist(@topic, "message...", :unique => [:session_hash])
       @topic.update_columns(exp:@topic.increment(:exp, 1).exp)
