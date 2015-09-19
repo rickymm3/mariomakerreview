@@ -26,9 +26,11 @@
   .fun
     ="Fun: #{@mario_level.fun_rank.nil? ? "NA" : @mario_level.fun_rank }"
   .puzzle
-    ="Puzzle: #{@mario_level.puzzle_rank.nil? ? "NA" : @mario_level.fun_rank }"
+    ="Puzzle: #{@mario_level.puzzle_rank.nil? ? "NA" : @mario_level.puzzle_rank }"
   .difficulty
-    ="Difficulty: #{@mario_level.difficulty_rank.nil? ? "NA" : @mario_level.fun_rank }"
+    ="Difficulty: #{@mario_level.difficulty_rank.nil? ? "NA" : @mario_level.difficulty_rank }"
+  .overall
+    ="Overall: #{@mario_level.overall_rank.nil? ? "NA" : @mario_level.overall_rank }"
 #disqus_thread
 :javascript
   /* * * CONFIGURATION VARIABLES * * */
