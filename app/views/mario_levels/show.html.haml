@@ -1,0 +1,28 @@
+.mario-level-left
+  .mario-screen-shot
+    -if @mario_level.ss_loc
+      =image_tag(@mario_level.ss_loc)
+  .mario-level
+    =@mario_level.name
+  .mario-description
+    =@mario_level.description
+  .mario-category
+    =@mario_level.l_category.category
+  .mario-level-code
+    =@mario_level.level_code
+  -if own_level?
+    -if @mario_level.user_id == current_user.id
+      .mario-owned
+        You own this level!
+  -if can_rate?
+    .mario-rate
+      =link_to "Rate", new_mario_rating_path(@mario_level)
+  -else
+    .mario-rating
+.div2
+  .fun
+    ="Fun: #{@mario_level.fun_rank.nil? ? "NA" : @mario_level.fun_rank }"
+  .puzzle
+    ="Puzzle: #{@mario_level.puzzle_rank.nil? ? "NA" : @mario_level.fun_rank }"
+  .difficulty
+    ="Difficulty: #{@mario_level.difficulty_rank.nil? ? "NA" : @mario_level.fun_rank }"

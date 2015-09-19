@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623180643) do
+ActiveRecord::Schema.define(version: 20150918190204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,40 @@ ActiveRecord::Schema.define(version: 20150623180643) do
   add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
   add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
+
+  create_table "l_categories", force: :cascade do |t|
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mario_levels", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "description"
+    t.string   "ss_loc"
+    t.integer  "fun_rank"
+    t.integer  "puzzle_rank"
+    t.integer  "difficulty_rank"
+    t.integer  "overall_rank"
+    t.integer  "close_vote"
+    t.integer  "l_category_id"
+    t.string   "level_code"
+    t.boolean  "disabled",        default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  create_table "mario_ratings", force: :cascade do |t|
+    t.integer  "fun"
+    t.integer  "puzzle"
+    t.integer  "difficulty"
+    t.integer  "overall"
+    t.integer  "user_id"
+    t.integer  "mario_level_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"

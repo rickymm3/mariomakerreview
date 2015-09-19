@@ -1,0 +1,44 @@
+.mario-screen-shot
+  -if @mario_level.ss_loc
+    =image_tag(@mario_level.ss_loc)
+.mario-level
+  =@mario_level.name
+.mario-description
+  =@mario_level.description
+.mario-category
+  =@mario_level.l_category.category
+.mario-level-code
+  =@mario_level.level_code
+
+=simple_form_for [@rating] do |f|
+  .field
+    %table
+      %tr
+        %td
+          .label-custom1.label-width Fun
+        %td
+          =f.range_field :fun, :min=>0, :max=>10, :class=>"slider", :id=>"slider-fun"
+      %tr
+        %td
+          .label-custom1.label-width Puzzle
+        %td
+          =f.range_field :puzzle, :min=>0, :max=>10, :class=>"slider", :id=>"slider-puzzle"
+      %tr
+        %td
+          .label-custom1.label-width Difficulty
+        %td
+          =f.range_field :difficulty, :min=>0, :max=>10, :class=>"slider", :id=>"slider-difficulty"
+      %tr
+        %td
+          .label-custom1.label-width Overall
+        %td
+          =f.range_field :overall, :min=>0, :max=>10, :class=>"slider", :id=>"slider-overall"
+  .submit
+    =f.submit 'Submit!',  class: "btn btn-default"
+
+:javascript
+  // Instantiate a slider
+  var mySlider = $("input.slider").slider();
+
+  // Call a method on the slider
+  var value = mySlider.slider('getValue');

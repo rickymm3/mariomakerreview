@@ -1,0 +1,24 @@
+.mario-welcome
+  Welcome to the Level Finder!
+
+%table.pretty
+  %th Filter:
+
+
+%table.pretty
+  %tr
+    %th= sortable "name"
+    %th= sortable "created_at", "Uploaded"
+    %th= sortable "fun_rank", "Fun"
+    %th= sortable "puzzle_rank", "Puzzle"
+    %th= sortable "difficulty_rank", "Difficulty"
+    %th= sortable "overall_rank", "Overall"
+  - for level in @levels
+    %tr
+      %td=link_to level.name, level
+      %td=time_ago_in_words(level.created_at)
+      %td=level.fun_rank
+      %td=level.puzzle_rank
+      %td=level.difficulty_rank
+      %td=level.overall_rank
+%p= link_to "Add New Level", new_mario_level_path

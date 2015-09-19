@@ -9,6 +9,20 @@ BaseApp::Application.routes.draw do
     end
   end
 
+  resources :tomatometers
+  resources :mariomaker do
+    collection do
+      authenticate :user do
+        resources :mario_levels, :path => 'levels', only: [:new, :create] do
+          member do
+            resources :mario_ratings, path: 'rate'
+          end
+        end
+      end
+      resources :mario_levels, :path => 'levels', only: [:index, :show]
+    end
+  end
+
   resources :favorites, only: [:update] do
     collection do
       get :do_reset_session

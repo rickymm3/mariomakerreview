@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include ApplicationHelper
   include CliqsHelper
+  include MarioHelper
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :load_index
   before_filter :check_for_username, except: [:edit, :update]

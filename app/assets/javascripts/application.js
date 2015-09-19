@@ -14,6 +14,7 @@
 //= require cliqs
 //= require jasny-bootstrap
 //= require owl-carousel
+//= require bootstrap-slider
 
 // //= require_tree .
 

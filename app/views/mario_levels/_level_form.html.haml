@@ -1,0 +1,12 @@
+=simple_form_for [@mario_level] do |f|
+  %div.field
+    =f.input :name
+    =f.input :description
+    =f.input :ss_loc
+    =f.input :level_code
+    =f.association :l_category, label_method: :category,
+                    value_method: :id,
+                    as: :radio_buttons,
+                    checked: LCategory.first.id
+
+    =f.submit 'Submit!',  class: "btn btn-default"

@@ -1,0 +1,54 @@
+.mario-header {
+  background-color: #efd63b;
+  overflow: hidden;
+  height: 170px;
+}
+
+.mario-nav {
+  border-top: 2px solid #ff0000;
+  background-color: #efd63b;
+  overflow: hidden;
+  height: 50px;
+}
+
+.mario-owned {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  background-color: #efc36c;
+}
+
+.mario-nav-links {
+  margin-right: 40px;
+  margin-top: 120px;
+}
+
+.mario-account {
+  margin-right: 75px;
+}
+
+.mario-rate {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 10px;
+  background-color: #43e7ef;
+}
+
+.slider {
+  padding-right: 10px;
+}
+
+.slider-selection {
+  background: #efd63b!important;
+}
+
+.mario-level-left {
+  float:left;
+  width: 400px;
+}
+
+.label-width {
+  width: 100px!important;
+}

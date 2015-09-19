@@ -29,6 +29,8 @@ gem 'impressionist'
 gem 'merit'
 gem 'sass-rails'
 gem 'whenever', :require => false
+gem 'httparty'
+gem 'bootstrap-slider-rails'
 
 group :test, :development do
   gem "rspec-rails"
