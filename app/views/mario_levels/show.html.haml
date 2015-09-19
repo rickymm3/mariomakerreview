@@ -10,6 +10,8 @@
     =@mario_level.l_category.category
   .mario-level-code
     =@mario_level.level_code
+  .mario-owner
+    ="Owner: #{@mario_level.user.first ||= ''} #{@mario_level.user.last ||='' }"
   -if own_level?
     -if @mario_level.user_id == current_user.id
       .mario-owned
@@ -26,3 +28,17 @@
     ="Puzzle: #{@mario_level.puzzle_rank.nil? ? "NA" : @mario_level.fun_rank }"
   .difficulty
     ="Difficulty: #{@mario_level.difficulty_rank.nil? ? "NA" : @mario_level.fun_rank }"
+#disqus_thread
+:javascript
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname = 'mariomakerreview';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+%noscript
+  Please enable JavaScript to view the
+  %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.

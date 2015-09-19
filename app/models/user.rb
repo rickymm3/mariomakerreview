@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :replies
   has_many :favorites
   has_many :bookmarks
+  has_many :mario_level
 
   friendly_id :username, use: :slugged
 
