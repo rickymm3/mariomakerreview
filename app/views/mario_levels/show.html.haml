@@ -1,49 +1,50 @@
-.mario-level-left
-  .mario-screen-shot
-    -if @mario_level.ss_loc
-      =image_tag(@mario_level.ss_loc)
-  .mario-level
-    =@mario_level.name
-  .mario-description
-    =@mario_level.description
-  .mario-category
-    =@mario_level.l_category.category
-  .mario-level-code
-    =@mario_level.level_code
-  .mario-level-plays
-    ="Total Plays: #{@count}"
-  .mario-owner
-    ="Owner: #{@mario_level.user.first ||= ''} #{@mario_level.user.last ||='' }"
-  -if own_level?
-    -if @mario_level.user_id == current_user.id
-      .mario-owned
-        You own this level!
-      =link_to "edit?", edit_mario_level_path(@mario_level)
-  -if can_rate?
-    .mario-rate
-      =link_to "Rate", new_mario_rating_path(@mario_level)
-  -else
-    .mario-rating
-.div2
-  .fun
-    ="Fun: #{@mario_level.fun_rank.nil? ? "NA" : @mario_level.fun_rank }"
-  .puzzle
-    ="Puzzle: #{@mario_level.puzzle_rank.nil? ? "NA" : @mario_level.puzzle_rank }"
-  .difficulty
-    ="Difficulty: #{@mario_level.difficulty_rank.nil? ? "NA" : @mario_level.difficulty_rank }"
-  .overall
-    ="Overall: #{@mario_level.overall_rank.nil? ? "NA" : @mario_level.overall_rank }"
-#disqus_thread
-:javascript
-  /* * * CONFIGURATION VARIABLES * * */
-  var disqus_shortname = 'mariomakerreview';
+.mario-welcome
+  .mario-level-left
+    .mario-screen-shot
+      -if @mario_level.ss_loc
+        =image_tag(@mario_level.ss_loc)
+    .mario-level
+      =@mario_level.name
+    .mario-description
+      =@mario_level.description
+    .mario-category
+      =@mario_level.l_category.category
+    .mario-level-code
+      =@mario_level.level_code
+    .mario-level-plays
+      ="Total Plays: #{@count}"
+    .mario-owner
+      ="Owner: #{@mario_level.user.first ||= ''} #{@mario_level.user.last ||='' }"
+    -if own_level?
+      -if @mario_level.user_id == current_user.id
+        .mario-owned
+          You own this level!
+        =link_to "edit?", edit_mario_level_path(@mario_level)
+    -if can_rate?
+      .mario-rate
+        =link_to "Rate", new_mario_rating_path(@mario_level)
+    -else
+      .mario-rating
+  .div2
+    .fun
+      ="Fun: #{@mario_level.fun_rank.nil? ? "NA" : @mario_level.fun_rank }"
+    .puzzle
+      ="Puzzle: #{@mario_level.puzzle_rank.nil? ? "NA" : @mario_level.puzzle_rank }"
+    .difficulty
+      ="Difficulty: #{@mario_level.difficulty_rank.nil? ? "NA" : @mario_level.difficulty_rank }"
+    .overall
+      ="Overall: #{@mario_level.overall_rank.nil? ? "NA" : @mario_level.overall_rank }"
+  #disqus_thread
+  :javascript
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'mariomakerreview';
 
-  /* * * DON'T EDIT BELOW THIS LINE * * */
-  (function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-%noscript
-  Please enable JavaScript to view the
-  %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  %noscript
+    Please enable JavaScript to view the
+    %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
