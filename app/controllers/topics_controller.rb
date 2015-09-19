@@ -42,6 +42,9 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    unless check_if_owner?
+      redirect_to [@topic.cliq, @topic], notice: "you do not have authority to edit"
+    end
     # edit_permissions(params['id'], 'topic')
   end
 
@@ -55,6 +58,14 @@ class TopicsController < ApplicationController
 
   private
 
+
+  def check_if_owner?
+    if current_user
+      @topic.user_id == current_user.id
+    else
+      false
+    end
+  end
 
   def check_if_locked
     if @topic.locked?

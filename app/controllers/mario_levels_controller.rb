@@ -40,6 +40,14 @@ class MarioLevelsController < ApplicationController
 
   private
 
+  def check_if_owner?
+    if current_user
+      @mario_level.user_id == current_user.id
+    else
+      false
+    end
+  end
+
   def mario_level_params
     params.require(:mario_level).permit(:name, :description, :ss_loc, :l_category_id, :level_code)
   end
