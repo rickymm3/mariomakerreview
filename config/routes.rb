@@ -46,8 +46,13 @@ BaseApp::Application.routes.draw do
     resources :users
     resources :reports
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :marioprofile
+    end
+  end
   resources :bookmarks, only: [:update]
+
 
   get "pages/not_authorized"
 

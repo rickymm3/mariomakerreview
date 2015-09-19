@@ -16,40 +16,7 @@
   .level-filter=sortable "created_at", "Uploaded"
   %br
   %hr
-  =will_paginate @levels
-  -@levels.each do |level|
-    .row.mario-level-row
-      .col-sm-12.mario-level-span
-        .col-sm-2.mario-level-image
-          -if level.ss_loc
-            =check_mario_image(level)
-        .col-sm-9.mario-level-body
-          .col-sm-9.pull-left
-            =link_to level.name, level
-            %p.mario-normal-text
-              =level.description
-          .col-sm-9.pull-left.mario-level-owner
-            Created by:
-            =level.user.username
-          .col-sm-9.pull-left
-            .level-id
-              id
-            =level.level_code
-          .col-sm-9.pull-left.mario-level-ranks{style:"font-color:white!important"}
-            .fun-rank
-              Fun:
-              =level.fun_rank
-            .puzzle-rank
-              Puzzle:
-              =level.puzzle_rank
-            .difficulty-rank
-              Difficulty:
-              =level.difficulty_rank
-            .overall-rank
-              Overall:
-              =level.overall_rank
-
-
+    =render "mario_levels/mario_level_list"
   -#%table.pretty.table-striped.table
   -#  %tr
   -#    %th=sortable "l_category_id", "Category"

@@ -1,3 +1,33 @@
+=will_paginate @levels
 -@levels.each do |level|
-  .level
-    =link_to level.name, level
+  .row.mario-level-row
+    .col-sm-12.mario-level-span
+      .col-sm-2.mario-level-image
+        -if level.ss_loc
+          =check_mario_image(level)
+      .col-sm-9.mario-level-body
+        .col-sm-9.pull-left
+          =link_to level.name, level
+          %p.mario-normal-text
+            =level.description
+        .col-sm-9.pull-left.mario-level-owner
+          Created by:
+          =link_to level.user.username, marioprofile_user_path(level.user)
+        .col-sm-9.pull-left
+          .level-id
+            id
+          =level.level_code
+        .col-sm-9.pull-left.mario-level-ranks{style:"font-color:white!important"}
+          .fun-rank
+            Fun:
+            =level.fun_rank
+          .puzzle-rank
+            Puzzle:
+            =level.puzzle_rank
+          .difficulty-rank
+            Difficulty:
+            =level.difficulty_rank
+          .overall-rank
+            Overall:
+            =level.overall_rank
+

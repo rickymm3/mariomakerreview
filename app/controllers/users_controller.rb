@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  layout "mariomaker", :only => :marioprofile
+
   def show
     @cliq = Cliq.find(1)
     @user = User.friendly.find(params[:id])
@@ -9,6 +12,11 @@ class UsersController < ApplicationController
 
   def do_reset_session
     reset_session
+  end
+
+  def marioprofile
+    @user = User.find_by_username(params[:id])
+    @levels = MarioLevel.where(user_id:@user.id).paginate(:per_page => 20, :page => params[:page])
   end
 
 end
