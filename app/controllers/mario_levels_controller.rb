@@ -1,6 +1,8 @@
 class MarioLevelsController < ApplicationController
   layout 'mariomaker'
   helper_method :sort_column, :sort_direction
+  before_action :authenticate_user!, :only => [:new, :create, :edit]
+
 
   def index
     @levels = MarioLevel.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
@@ -30,6 +32,10 @@ class MarioLevelsController < ApplicationController
   def show
     @mario_level = MarioLevel.find(params[:id])
     @fun = @mario_level
+  end
+
+  def edit
+    @mario_level = MarioLevel.find(params[:id])
   end
 
   private

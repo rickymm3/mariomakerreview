@@ -16,6 +16,7 @@
     -if @mario_level.user_id == current_user.id
       .mario-owned
         You own this level!
+      =link_to "edit?", edit_mario_level_path(@mario_level)
   -if can_rate?
     .mario-rate
       =link_to "Rate", new_mario_rating_path(@mario_level)

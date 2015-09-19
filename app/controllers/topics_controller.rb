@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :set_cliq, only: [:new, :show, :create]
   before_action :get_replies, only: [:show]
-  before_action :authenticate_user!, :only => [:new, :create, :report]
+  before_action :authenticate_user!, :only => [:new, :create, :report, :edit]
   before_action :check_if_locked, only: [:edit, :update]
 
   load_and_authorize_resource
