@@ -1,16 +1,15 @@
 .mario-welcome
   .mario-level-left
     .mario-screen-shot
-      -if @mario_level.ss_loc
-        =image_tag(@mario_level.ss_loc)
+      =check_mario_image(@mario_level)
     .mario-level
-      =@mario_level.name
+      =render "mario_levels/stage_name", level:@mario_level
     .mario-description
       =@mario_level.description
     .mario-category
       =@mario_level.l_category.category
     .mario-level-code
-      =@mario_level.level_code
+      =render "mario_levels/rate_id", level:@mario_level
     .mario-level-plays
       ="Total Plays: #{@count}"
     .mario-owner
@@ -23,17 +22,8 @@
     -if can_rate?(@mario_level)
       .mario-rate
         =link_to "Rate", new_mario_rating_path(@mario_level)
-    -else
-      .mario-rating
   .div2
-    .fun
-      ="Fun: #{@mario_level.fun_rank.nil? ? "NA" : @mario_level.fun_rank }"
-    .puzzle
-      ="Puzzle: #{@mario_level.puzzle_rank.nil? ? "NA" : @mario_level.puzzle_rank }"
-    .difficulty
-      ="Difficulty: #{@mario_level.difficulty_rank.nil? ? "NA" : @mario_level.difficulty_rank }"
-    .overall
-      ="Overall: #{@mario_level.overall_rank.nil? ? "NA" : @mario_level.overall_rank }"
+    =render "mario_levels/level_ranks", level:@mario_level
   #disqus_thread
   :javascript
     /* * * CONFIGURATION VARIABLES * * */

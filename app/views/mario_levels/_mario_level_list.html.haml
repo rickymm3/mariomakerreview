@@ -3,36 +3,18 @@
   .row.mario-level-row
     .col-sm-12.mario-level-span
       .col-sm-2.mario-level-image
-        -if level.ss_loc
-          =check_mario_image(level)
+        =check_mario_image(level)
       .col-sm-9.mario-level-body
         .col-sm-9.pull-left
-          - if mario_level_complete?(level)
-            =image_tag('complete.png', size: "10x10")
-          =link_to level.name, level
+          =render "mario_levels/stage_name", level:level
           %p.mario-normal-text
             =level.description
         .col-sm-9.pull-left.mario-level-owner
           Created by:
           =link_to level.user.username, marioprofile_user_path(level.user)
         .col-sm-9.pull-left
-          -if can_rate?(level)
-            .mario-rate
-              =link_to "Rate", new_mario_rating_path(level)
-          .level-id
-            id
-          =level.level_code
-        .col-sm-9.pull-left.mario-level-ranks{style:"font-color:white!important"}
-          .fun-rank
-            Fun:
-            =level.fun_rank
-          .puzzle-rank
-            Puzzle:
-            =level.puzzle_rank
-          .difficulty-rank
-            Difficulty:
-            =level.difficulty_rank
-          .overall-rank
-            Overall:
-            =level.overall_rank
+          =render "mario_levels/rate_id", level:level
+        .col-sm-9.pull-left.mario-level-ranks
+          =render "mario_levels/level_ranks", level:level
+
 
