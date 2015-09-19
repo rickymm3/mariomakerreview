@@ -5,7 +5,7 @@ class MarioLevelsController < ApplicationController
 
 
   def index
-    @levels = MarioLevel.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @levels = MarioLevel.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 20, :page => params[:page])
   end
 
   def new
