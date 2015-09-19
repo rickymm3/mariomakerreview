@@ -10,6 +10,8 @@
     =@mario_level.l_category.category
   .mario-level-code
     =@mario_level.level_code
+  .mario-level-plays
+    ="Total Plays: #{@count}"
   .mario-owner
     ="Owner: #{@mario_level.user.first ||= ''} #{@mario_level.user.last ||='' }"
   -if own_level?

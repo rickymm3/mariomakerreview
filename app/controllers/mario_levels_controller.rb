@@ -31,6 +31,7 @@ class MarioLevelsController < ApplicationController
 
   def show
     @mario_level = MarioLevel.find(params[:id])
+    @count = MarioRating.where(mario_level_id: @mario_level.id).count
     @fun = @mario_level
   end
 

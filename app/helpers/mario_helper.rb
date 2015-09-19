@@ -46,4 +46,16 @@ module MarioHelper
     end
   end
 
+  def mario_level_complete?(level)
+    if current_user
+      if MarioRating.where(user_id:current_user.id, mario_level_id: level.id).present?
+        true
+      else
+        false
+      end
+    else
+      false
+    end
+  end
+
 end
