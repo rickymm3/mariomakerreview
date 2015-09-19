@@ -1,31 +1,73 @@
 .mario-welcome
-  Welcome to the Level Finder!
-
-%table.pretty
-  %th Filter:
-
-.panel
+  %p
+    Welcome to the Level Finder!
+  %p
+    Use the filters below to find the exact level you're looking for!  Fun, Puzzling, or Difficult?
+  %p
+    Played a level? Be sure to RATE it when youre done to keep the best levels on top!
+  %br
+  .level-filter Filter:
+  .level-filter=sortable "l_category_id", "Category"
+  .level-filter=sortable "name"
+  .level-filter=sortable "fun_rank", "Fun"
+  .level-filter=sortable "puzzle_rank", "Puzzle"
+  .level-filter=sortable "difficulty_rank", "Difficulty"
+  .level-filter=sortable "overall_rank", "Overall"
+  .level-filter=sortable "created_at", "Uploaded"
+  %br
+  %hr
   =will_paginate @levels
-  %table.pretty.table-striped.table
-    %tr
-      %th=sortable "l_category_id", "Category"
-      %th{width: "100px"}= sortable "name"
-      %th= sortable "fun_rank", "Fun"
-      %th= sortable "puzzle_rank", "Puzzle"
-      %th= sortable "difficulty_rank", "Difficulty"
-      %th= sortable "level_code", "Level Code"
-      %th= sortable "overall_rank", "Overall"
-      %th= sortable "created_at", "Uploaded"
+  -@levels.each do |level|
+    .row.mario-level-row
+      .col-sm-12
+        .col-sm-2.mario-level-image
+          -if level.ss_loc
+            =image_tag(level.ss_loc, size: "160x120")
+        .col-sm-9.mario-level-body
+          .col-sm-9.pull-left
+            =link_to level.name, level
+            %p.mario-normal-text
+              =level.description
+          .col-sm-9.pull-left.mario-level-owner
+            Created by:
+            =level.user.username
+          .col-sm-9.pull-left
+            .level-id
+              id
+            =level.level_code
+          .col-sm-9.pull-left.mario-level-ranks{style:"font-color:white!important"}
+            .fun-rank
+              Fun:
+              =level.fun_rank
+            .puzzle-rank
+              Puzzle:
+              =level.puzzle_rank
+            .difficulty-rank
+              Difficulty:
+              =level.difficulty_rank
+            .overall-rank
+              Overall:
+              =level.overall_rank
 
-    - for level in @levels
-      %tr
-        %td=level.l_category.category.capitalize
-        %td=link_to level.name, level
-        %td=level.fun_rank
-        %td=level.puzzle_rank
-        %td=level.difficulty_rank
-        %td=level.level_code
-        %td=level.overall_rank
-        %td=time_ago_in_words(level.created_at)
 
-%p= link_to "Add New Level", new_mario_level_path
+  -#%table.pretty.table-striped.table
+  -#  %tr
+  -#    %th=sortable "l_category_id", "Category"
+  -#    %th{width: "100px"}= sortable "name"
+  -#    %th= sortable "fun_rank", "Fun"
+  -#    %th= sortable "puzzle_rank", "Puzzle"
+  -#    %th= sortable "difficulty_rank", "Difficulty"
+  -#    %th= sortable "level_code", "Level Code"
+  -#    %th= sortable "overall_rank", "Overall"
+  -#    %th= sortable "created_at", "Uploaded"
+  -#
+  -#  - for level in @levels
+  -#    %tr
+  -#      %td=level.l_category.category.capitalize
+  -#      %td=link_to level.name, level
+  -#      %td=level.fun_rank
+  -#      %td=level.puzzle_rank
+  -#      %td=level.difficulty_rank
+  -#      %td=level.level_code
+  -#      %td=level.overall_rank
+  -#      %td=time_ago_in_words(level.created_at)

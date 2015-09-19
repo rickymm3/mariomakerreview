@@ -66,3 +66,87 @@
     padding: 10px;
   }
 }
+
+.mario-level-row {
+  margin-bottom: 20px;
+}
+
+
+.mario-level-image {
+  min-width: 160px;
+}
+
+.mario-level-body {
+  margin-left: 15px;
+  min-width: 540px;
+  a {
+    font-size: 18px;
+  }
+}
+
+.mario-level-owner {
+  vertical-align: bottom;
+  min-width: 540px;
+
+}
+
+.level-id {
+  color: white;
+  font-weight: bold;
+  background-color: #00c61b;
+  border-radius: 3px;
+  padding: 0px 5px;
+  float:left;
+  margin-right: 5px
+}
+
+.mario-level-ranks {
+  margin-top: 5px;
+}
+
+.fun-rank {
+  color: white;
+  font-weight: bold;
+  background-color: #ff5b00;
+  border-radius: 3px;
+  padding: 0px 5px;
+  float:left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.puzzle-rank {
+  color: white;
+  font-weight: bold;
+  background-color: #d9a247;
+  border-radius: 3px;
+  padding: 0px 5px;
+  float:left;
+  margin-right: 5px;
+}
+
+.difficulty-rank {
+  color: white;
+  font-weight: bold;
+  background-color: #1b6eb2;
+  border-radius: 3px;
+  padding: 0px 5px;
+  float:left;
+  margin-right: 5px;
+}
+
+.overall-rank {
+  color: white;
+  font-weight: bold;
+  background-color: #6a5d54;
+  border-radius: 3px;
+  padding: 0px 5px;
+  float:left;
+  margin-right: 5px;
+}
+
+.level-filter {
+  float:left;
+  padding-right: 10px;
+}
+
