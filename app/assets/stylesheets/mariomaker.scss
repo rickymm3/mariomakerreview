@@ -52,3 +52,17 @@
 .label-width {
   width: 100px!important;
 }
+
+.mario-container {
+  margin-top: 30px;
+  width: 600px;
+  margin-left: 100px;
+}
+.mario-table {
+  th {
+    cellspacing: 10px;
+  }
+  tr {
+    padding: 10px;
+  }
+}
