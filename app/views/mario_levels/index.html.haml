@@ -22,7 +22,7 @@
       .col-sm-12
         .col-sm-2.mario-level-image
           -if level.ss_loc
-            =image_tag(level.ss_loc, size: "160x120")
+            =check_mario_image(level)
         .col-sm-9.mario-level-body
           .col-sm-9.pull-left
             =link_to level.name, level

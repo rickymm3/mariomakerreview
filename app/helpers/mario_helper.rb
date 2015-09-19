@@ -38,4 +38,12 @@ module MarioHelper
     level.update_attributes(fun_rank:fun,puzzle_rank:puzzle,difficulty_rank:difficulty, overall_rank:overall)
   end
 
+  def check_mario_image(level)
+    unless level.ss_loc == ""
+      image_tag(level.ss_loc, size: '160x120')
+    else
+      image_tag('no_image.png', size: '160x120')
+    end
+  end
+
 end
