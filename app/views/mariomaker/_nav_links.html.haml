@@ -1,8 +1,19 @@
-%ul.nav.navbar-nav
-  %li.active
+%ul.nav.navbar-nav.navbar-mario
+  %li
     =link_to "Find Levels", mario_levels_path
   %li
     =link_to "Add Your Level", new_mario_level_path
+%ul.nav.navbar-nav.pull-right.navbar-mario
+  %li.pull-right.mario-account
+    =render "mariomaker/account"
+
+.navbar-2{style:"display:none;"}
+  %ul.list-inline
+    %li=link_to "Find Levels", mario_levels_path
+    %li=link_to "Add Your Level", new_mario_level_path
+    =render "mariomaker/account"
+
+
 -#%form.navbar-form.navbar-left{role: "search"}
 -#  .form-group
 -#    %input.form-control{placeholder: "Search", type: "text"}/

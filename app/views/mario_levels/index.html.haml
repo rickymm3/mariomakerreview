@@ -19,7 +19,7 @@
   =will_paginate @levels
   -@levels.each do |level|
     .row.mario-level-row
-      .col-sm-12
+      .col-sm-12.mario-level-span
         .col-sm-2.mario-level-image
           -if level.ss_loc
             =check_mario_image(level)
