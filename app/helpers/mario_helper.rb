@@ -10,16 +10,15 @@ module MarioHelper
     end
   end
 
-  def can_rate?
-    if own_level?
-      false
-    end
+  def can_rate?(level)
     if current_user
-      if MarioRating.where(user_id: current_user.id, mario_level_id: @mario_level.id).exists?
+      if MarioRating.where(user_id: current_user.id, mario_level_id: level.id).exists?
         false
       else
         true
       end
+    else
+      false
     end
   end
 

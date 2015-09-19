@@ -31,11 +31,17 @@
 }
 
 .mario-rate {
-  display: inline-block;
-  padding: 10px;
-  border-radius: 6px;
-  margin-top: 10px;
-  background-color: #43e7ef;
+  a{
+    font-size: 12px!important;
+    color: white;
+  }
+  color: white;
+  font-weight: bold;
+  background-color: #6a5d54;
+  border-radius: 3px;
+  padding: 0px 5px;
+  float:left;
+  margin-right: 5px;
 }
 
 .slider {
