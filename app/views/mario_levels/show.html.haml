@@ -46,10 +46,8 @@
   %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
 #fb-root
 :javascript
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1625324187688026";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+  FB.ui({
+    method: 'feed',
+    link: 'https://developers.facebook.com/docs/',
+    caption: 'An example caption',
+  }, function(response){});
