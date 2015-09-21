@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: cliq_development
+  database: mariomakerreview_production
   username: Ricky
   password:
   encoding: utf8
@@ -8,7 +8,7 @@ development:
 
 test: &test
   adapter: postgresql
-  database: cliq_test
+  database: mariomakerreview_production
   username: Ricky
   password:
   encoding: utf8
@@ -20,5 +20,5 @@ cucumber:
 production:
   adapter: postgresql
   encoding: unicode
-  database: cliq_production
+  database: mariomakerreview_production
   pool: 5
