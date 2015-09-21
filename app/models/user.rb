@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, unless: -> {self.provider == 'facebook'}
   validates :username, uniqueness: true, if: -> { self.username.present? }
+  validates :email, uniqueness: true
+  validates :email, presence: true
 
   has_many :user_roles
   has_many :roles, -> { select 'roles.*, user_roles.cliq_id AS cliq_id' }, :through => :user_roles
