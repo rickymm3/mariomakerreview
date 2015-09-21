@@ -36,7 +36,7 @@ BaseApp::Application.routes.draw do
     end
   end
 
-  root :to => "cliqs#index"
+  root :to => "mariomaker#index"
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }
 
