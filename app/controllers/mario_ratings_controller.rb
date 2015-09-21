@@ -1,5 +1,4 @@
 class MarioRatingsController < ApplicationController
-  layout 'mariomaker'
 
   def index
   end

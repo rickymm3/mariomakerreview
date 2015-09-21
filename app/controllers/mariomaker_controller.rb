@@ -1,5 +1,4 @@
 class MariomakerController < ApplicationController
-  layout 'mariomaker'
 
   def index
   end

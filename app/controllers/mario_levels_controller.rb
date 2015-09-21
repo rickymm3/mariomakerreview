@@ -1,5 +1,4 @@
 class MarioLevelsController < ApplicationController
-  layout 'mariomaker'
   helper_method :sort_column, :sort_direction
   before_action :authenticate_user!, :only => [:new, :create, :edit]
 
