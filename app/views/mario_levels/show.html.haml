@@ -1,3 +1,9 @@
+- content_for :head do
+  %meta{ :property => "og:url", :content => "http://cliqboards.com/mariomaker/"}
+  %meta{ :property => "og:type", :content => "website"}
+  %meta{ :property => "og:title", :content => "MarioMaker - #{@mario_level.name}"}
+  %meta{ :property => "og:description", :content => "#{@mario_level.description}"}
+
 .mario-welcome
   .mario-level-left
     .mario-screen-shot
@@ -13,28 +19,37 @@
     .mario-level-plays
       ="Total Plays: #{@count}"
     .mario-owner
-      ="Owner: #{@mario_level.user.first ||= ''} #{@mario_level.user.last ||='' }"
+      ="Owner: #{@mario_level.user.username ||= ''}"
     -if own_level?
       -if @mario_level.user_id == current_user.id
         .mario-owned
           You own this level!
         =link_to "edit?", edit_mario_level_path(@mario_level)
-    -if can_rate?(@mario_level)
-      .mario-rate
-        =link_to "Rate", new_mario_rating_path(@mario_level)
-  .div2
-    =render "mario_levels/level_ranks", level:@mario_level
+    .fb-share
+      .fb-share-button{"data-href" => "http://cliqboards.com/mariomaker/levels/#{@mario_level.id}", "data-layout" => "button_count"}
+    .ranks
+      =render "mario_levels/level_ranks", level:@mario_level
   #disqus_thread
-  :javascript
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = 'mariomakerreview';
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  %noscript
-    Please enable JavaScript to view the
-    %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
+:javascript
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname = 'mariomakerreview';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+%noscript
+  Please enable JavaScript to view the
+  %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
+#fb-root
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1625324187688026";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
