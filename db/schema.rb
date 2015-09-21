@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150918190204) do
   end
 
   create_table "cliqs", force: :cascade do |t|
+    t.integer  "parent_id"
     t.string   "name",                           null: false
     t.boolean  "is_category", default: false
     t.string   "ancestry"
@@ -42,7 +43,6 @@ ActiveRecord::Schema.define(version: 20150918190204) do
     t.boolean  "is_main"
     t.string   "color",       default: "ffffff"
     t.string   "cached_name"
-    t.integer  "parent_id"
     t.integer  "cliq_p_id"
     t.string   "slug"
   end
@@ -205,9 +205,9 @@ ActiveRecord::Schema.define(version: 20150918190204) do
   end
 
   create_table "roles", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
   end
 
   create_table "roles_users", id: false, force: :cascade do |t|
